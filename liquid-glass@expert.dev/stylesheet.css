@@ -1,26 +1,26 @@
 /* ============================================================
-   LIQUID GLASS UI v4 — Adaptive Blur, Ultra-Smooth Animations
+   LIQUID GLASS UI v5 — Ultra-Responsive, Adaptive Blur
    ============================================================ */
 
 /* === TOP BAR / PANEL — ADAPTIVE BLUR & WHITE TEXT === */
 #panel {
-    background: rgba(255, 255, 255, 0.15) !important;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.3) !important;
+    background: rgba(255, 255, 255, 0.12) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.25) !important;
     box-shadow: 
-        0 4px 20px rgba(0, 0, 0, 0.15), 
-        inset 0 1px 0 rgba(255, 255, 255, 0.4) !important;
+        0 2px 12px rgba(0, 0, 0, 0.08), 
+        inset 0 1px 0 rgba(255, 255, 255, 0.35) !important;
     backdrop-filter: blur(20px);
-    transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition: background 0.12s ease-out;
 }
 
-/* Dark mode support - darker transparent background */
+/* Dark mode - dark transparent background */
 .dark-mode #panel,
 #panel.dark-mode {
-    background: rgba(20, 20, 30, 0.65) !important;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.15) !important;
+    background: rgba(10, 10, 15, 0.75) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12) !important;
     box-shadow: 
-        0 4px 20px rgba(0, 0, 0, 0.4), 
-        inset 0 1px 0 rgba(255, 255, 255, 0.15) !important;
+        0 2px 12px rgba(0, 0, 0, 0.5), 
+        inset 0 1px 0 rgba(255, 255, 255, 0.08) !important;
 }
 
 #panel .panel-button,
@@ -33,19 +33,20 @@
     color: #ffffff !important;
     icon-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-    transition: all 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition: all 0.1s ease-out;
 }
 
 #panel .panel-button:hover {
-    background: rgba(255, 255, 255, 0.12) !important;
+    background: rgba(255, 255, 255, 0.1) !important;
     border-radius: 8px;
-    transition: all 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition: all 0.1s ease-out;
 }
 
-#panel .panel-button:active {
-    background: rgba(255, 255, 255, 0.18) !important;
-    transform: scale(0.97);
-    transition: all 0.1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+#panel .panel-button:active,
+#panel .panel-button:checked {
+    background: rgba(255, 255, 255, 0.15) !important;
+    transform: scale(0.98);
+    transition: all 0.08s ease-out;
 }
 
 #panel .clock-display StLabel,
@@ -56,7 +57,7 @@
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
 }
 
-/* Fix untuk menu dropdown di panel */
+/* Fix untuk menu dropdown di panel - responsive */
 #panel .popup-menu-content {
     color: #ffffff !important;
 }
@@ -66,161 +67,161 @@
 }
 
 #panel .popup-menu-item:hover {
-    background: rgba(255, 255, 255, 0.12) !important;
+    background: rgba(255, 255, 255, 0.1) !important;
 }
 
 /* === LIQUID GLASS PANEL — ADAPTIVE BLUR === */
 .liquid-glass-panel {
-    background: rgba(255, 255, 255, 0.12) !important;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.25) !important;
+    background: rgba(255, 255, 255, 0.1) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
     box-shadow: 
-        0 4px 20px rgba(0, 0, 0, 0.12), 
-        inset 0 1px 0 rgba(255, 255, 255, 0.35) !important;
+        0 2px 12px rgba(0, 0, 0, 0.08), 
+        inset 0 1px 0 rgba(255, 255, 255, 0.3) !important;
     backdrop-filter: blur(20px);
-    transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition: background 0.12s ease-out;
 }
 
 .dark-mode .liquid-glass-panel,
 .liquid-glass-panel.dark-mode {
-    background: rgba(20, 20, 30, 0.55) !important;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.15) !important;
+    background: rgba(10, 10, 15, 0.7) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
     box-shadow: 
-        0 4px 20px rgba(0, 0, 0, 0.35), 
-        inset 0 1px 0 rgba(255, 255, 255, 0.15) !important;
+        0 2px 12px rgba(0, 0, 0, 0.45), 
+        inset 0 1px 0 rgba(255, 255, 255, 0.08) !important;
 }
 
 .liquid-glass-panel:hover {
-    background: rgba(255, 255, 255, 0.18) !important;
+    background: rgba(255, 255, 255, 0.14) !important;
     box-shadow: 
-        0 8px 28px rgba(0, 0, 0, 0.15), 
-        inset 0 1px 0 rgba(255, 255, 255, 0.4) !important;
-    transition: all 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        0 4px 16px rgba(0, 0, 0, 0.1), 
+        inset 0 1px 0 rgba(255, 255, 255, 0.35) !important;
+    transition: background 0.1s ease-out;
 }
 
 .dark-mode .liquid-glass-panel:hover {
-    background: rgba(20, 20, 30, 0.65) !important;
+    background: rgba(10, 10, 15, 0.8) !important;
 }
 
 /* === LIQUID GLASS DASH & OVERVIEW — ADAPTIVE BLUR === */
 .liquid-glass-dash,
 .liquid-glass-dash-bg {
-    background: rgba(255, 255, 255, 0.1) !important;
-    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    background: rgba(255, 255, 255, 0.08) !important;
+    border: 1px solid rgba(255, 255, 255, 0.25) !important;
     border-radius: 18px !important;
     box-shadow: 
-        0 10px 40px rgba(0, 0, 0, 0.15), 
-        inset 0 1px 0 rgba(255, 255, 255, 0.35) !important;
+        0 8px 32px rgba(0, 0, 0, 0.1), 
+        inset 0 1px 0 rgba(255, 255, 255, 0.3) !important;
     backdrop-filter: blur(20px);
-    transition: all 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition: background 0.15s ease-out;
 }
 
 .dark-mode .liquid-glass-dash,
 .dark-mode .liquid-glass-dash-bg,
 .liquid-glass-dash.dark-mode,
 .liquid-glass-dash-bg.dark-mode {
-    background: rgba(20, 20, 30, 0.5) !important;
-    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    background: rgba(10, 10, 15, 0.65) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
     box-shadow: 
-        0 10px 40px rgba(0, 0, 0, 0.4), 
-        inset 0 1px 0 rgba(255, 255, 255, 0.15) !important;
+        0 8px 32px rgba(0, 0, 0, 0.4), 
+        inset 0 1px 0 rgba(255, 255, 255, 0.08) !important;
 }
 
 .liquid-glass-dash:hover,
 .liquid-glass-dash-bg:hover {
-    background: rgba(255, 255, 255, 0.16) !important;
+    background: rgba(255, 255, 255, 0.12) !important;
     box-shadow: 
-        0 14px 48px rgba(0, 0, 0, 0.18), 
-        inset 0 1px 0 rgba(255, 255, 255, 0.4) !important;
-    transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        0 10px 36px rgba(0, 0, 0, 0.12), 
+        inset 0 1px 0 rgba(255, 255, 255, 0.35) !important;
+    transition: background 0.12s ease-out;
 }
 
 .dark-mode .liquid-glass-dash:hover,
 .dark-mode .liquid-glass-dash-bg:hover {
-    background: rgba(20, 20, 30, 0.6) !important;
+    background: rgba(10, 10, 15, 0.75) !important;
 }
 
 /* === SEARCH ENTRY — ADAPTIVE BLUR === */
 .search-entry {
-    background: rgba(255, 255, 255, 0.15) !important;
-    border: 1px solid rgba(255, 255, 255, 0.35) !important;
+    background: rgba(255, 255, 255, 0.1) !important;
+    border: 1px solid rgba(255, 255, 255, 0.25) !important;
     border-radius: 14px !important;
     box-shadow: 
-        0 8px 32px rgba(0, 0, 0, 0.12), 
-        inset 0 1px 0 rgba(255, 255, 255, 0.3) !important;
+        0 6px 24px rgba(0, 0, 0, 0.08), 
+        inset 0 1px 0 rgba(255, 255, 255, 0.25) !important;
     backdrop-filter: blur(20px);
-    transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition: background 0.12s ease-out, border-color 0.12s ease-out;
     color: #ffffff !important;
 }
 
 .dark-mode .search-entry,
 .search-entry.dark-mode {
-    background: rgba(20, 20, 30, 0.6) !important;
-    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    background: rgba(10, 10, 15, 0.65) !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
     box-shadow: 
-        0 8px 32px rgba(0, 0, 0, 0.35), 
-        inset 0 1px 0 rgba(255, 255, 255, 0.15) !important;
+        0 6px 24px rgba(0, 0, 0, 0.35), 
+        inset 0 1px 0 rgba(255, 255, 255, 0.08) !important;
 }
 
 .search-entry:focus {
-    background: rgba(255, 255, 255, 0.2) !important;
-    border-color: rgba(255, 255, 255, 0.5) !important;
+    background: rgba(255, 255, 255, 0.15) !important;
+    border-color: rgba(255, 255, 255, 0.4) !important;
     box-shadow: 
-        0 10px 40px rgba(0, 0, 0, 0.15), 
-        inset 0 1px 0 rgba(255, 255, 255, 0.4) !important;
-    transition: all 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        0 8px 28px rgba(0, 0, 0, 0.1), 
+        inset 0 1px 0 rgba(255, 255, 255, 0.3) !important;
+    transition: background 0.1s ease-out, border-color 0.1s ease-out;
 }
 
 .dark-mode .search-entry:focus,
 .search-entry.dark-mode:focus {
-    background: rgba(20, 20, 30, 0.7) !important;
+    background: rgba(10, 10, 15, 0.75) !important;
 }
 
 /* === OVERVIEW CONTROLS — ADAPTIVE BLUR === */
 .overview-controls {
-    background: rgba(255, 255, 255, 0.12) !important;
-    border: 1px solid rgba(255, 255, 255, 0.25) !important;
+    background: rgba(255, 255, 255, 0.1) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
     border-radius: 16px !important;
     box-shadow: 
-        0 8px 32px rgba(0, 0, 0, 0.12), 
-        inset 0 1px 0 rgba(255, 255, 255, 0.3) !important;
+        0 6px 24px rgba(0, 0, 0, 0.08), 
+        inset 0 1px 0 rgba(255, 255, 255, 0.25) !important;
     backdrop-filter: blur(20px);
-    transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition: background 0.12s ease-out;
 }
 
 .dark-mode .overview-controls,
 .overview-controls.dark-mode {
-    background: rgba(20, 20, 30, 0.5) !important;
-    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    background: rgba(10, 10, 15, 0.65) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
     box-shadow: 
-        0 8px 32px rgba(0, 0, 0, 0.35), 
-        inset 0 1px 0 rgba(255, 255, 255, 0.15) !important;
+        0 6px 24px rgba(0, 0, 0, 0.35), 
+        inset 0 1px 0 rgba(255, 255, 255, 0.08) !important;
 }
 
 /* === APP ICONS HOVER — SMOOTH TRANSITIONS === */
 .app-well-app:hover .overview-icon,
 .grid-search-result:hover .overview-icon {
-    background: rgba(255, 255, 255, 0.15) !important;
+    background: rgba(255, 255, 255, 0.12) !important;
     border-radius: 12px !important;
     box-shadow: 
-        0 6px 24px rgba(0, 0, 0, 0.12), 
-        inset 0 1px 0 rgba(255, 255, 255, 0.3) !important;
-    transition: all 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        0 4px 16px rgba(0, 0, 0, 0.08), 
+        inset 0 1px 0 rgba(255, 255, 255, 0.25) !important;
+    transition: background 0.1s ease-out;
 }
 
 .dark-mode .app-well-app:hover .overview-icon,
 .dark-mode .grid-search-result:hover .overview-icon {
-    background: rgba(255, 255, 255, 0.12) !important;
+    background: rgba(255, 255, 255, 0.08) !important;
 }
 
 /* === NOTIFICATIONS — ADAPTIVE BLUR === */
 .notification,
 .message-list-section {
-    background: rgba(255, 255, 255, 0.15) !important;
-    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    background: rgba(255, 255, 255, 0.1) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
     border-radius: 14px !important;
-    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.15) !important;
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.1) !important;
     backdrop-filter: blur(20px);
-    transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition: background 0.12s ease-out;
     color: #ffffff !important;
 }
 
@@ -228,101 +229,101 @@
 .dark-mode .message-list-section,
 .notification.dark-mode,
 .message-list-section.dark-mode {
-    background: rgba(20, 20, 30, 0.65) !important;
-    border: 1px solid rgba(255, 255, 255, 0.15) !important;
-    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.4) !important;
+    background: rgba(10, 10, 15, 0.7) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.4) !important;
 }
 
 .notification:hover {
-    background: rgba(255, 255, 255, 0.2) !important;
-    box-shadow: 0 14px 42px rgba(0, 0, 0, 0.18) !important;
-    transition: all 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    background: rgba(255, 255, 255, 0.15) !important;
+    box-shadow: 0 10px 32px rgba(0, 0, 0, 0.12) !important;
+    transition: background 0.1s ease-out;
 }
 
 .dark-mode .notification:hover {
-    background: rgba(20, 20, 30, 0.75) !important;
-    box-shadow: 0 14px 42px rgba(0, 0, 0, 0.45) !important;
+    background: rgba(10, 10, 15, 0.8) !important;
+    box-shadow: 0 10px 32px rgba(0, 0, 0, 0.45) !important;
 }
 
-/* === POPUP MENUS — ADAPTIVE BLUR === */
+/* === POPUP MENUS — ADAPTIVE BLUR (CRITICAL FOR RESPONSIVENESS) === */
 .popup-menu-content {
-    background: rgba(255, 255, 255, 0.15) !important;
-    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    background: rgba(255, 255, 255, 0.1) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
     border-radius: 14px !important;
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15) !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1) !important;
     backdrop-filter: blur(20px);
     color: #ffffff !important;
-    transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition: opacity 0.1s ease-out;
 }
 
 .dark-mode .popup-menu-content,
 .popup-menu-content.dark-mode {
-    background: rgba(20, 20, 30, 0.65) !important;
-    border: 1px solid rgba(255, 255, 255, 0.15) !important;
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4) !important;
+    background: rgba(10, 10, 15, 0.75) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4) !important;
 }
 
 /* === WORKSPACE SWITCHER — ADAPTIVE BLUR === */
 .workspace-switcher-group .workspace-switcher {
-    background: rgba(255, 255, 255, 0.12) !important;
-    border: 1px solid rgba(255, 255, 255, 0.25) !important;
+    background: rgba(255, 255, 255, 0.1) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
     border-radius: 12px !important;
-    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.15) !important;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1) !important;
     backdrop-filter: blur(20px);
-    transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition: background 0.12s ease-out;
 }
 
 .dark-mode .workspace-switcher-group .workspace-switcher,
 .workspace-switcher-group .workspace-switcher.dark-mode {
-    background: rgba(20, 20, 30, 0.55) !important;
-    border: 1px solid rgba(255, 255, 255, 0.15) !important;
-    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.35) !important;
+    background: rgba(10, 10, 15, 0.7) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.35) !important;
 }
 
 /* ============================================================
-   FIX: QUICK TOGGLE — Adaptive Blur & Ultra-Smooth
+   FIX: QUICK TOGGLE — Adaptive Blur & Ultra-Responsive
    ============================================================ */
 
 .quick-toggle,
 .quick-menu-toggle .quick-toggle {
     border-radius: 16px !important;
-    background: rgba(255, 255, 255, 0.12) !important;
-    border: 1px solid rgba(255, 255, 255, 0.25) !important;
+    background: rgba(255, 255, 255, 0.1) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
     box-shadow: 
-        0 4px 16px rgba(0, 0, 0, 0.12),
-        inset 0 1px 0 rgba(255, 255, 255, 0.3) !important;
-    transition: all 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+        0 3px 12px rgba(0, 0, 0, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.25) !important;
+    transition: background 0.1s ease-out, transform 0.08s ease-out !important;
     color: #ffffff !important;
 }
 
 .dark-mode .quick-toggle,
 .dark-mode .quick-menu-toggle .quick-toggle,
 .quick-toggle.dark-mode {
-    background: rgba(20, 20, 30, 0.55) !important;
-    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    background: rgba(10, 10, 15, 0.65) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
     box-shadow: 
-        0 4px 16px rgba(0, 0, 0, 0.35),
-        inset 0 1px 0 rgba(255, 255, 255, 0.15) !important;
+        0 3px 12px rgba(0, 0, 0, 0.35),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08) !important;
 }
 
 .quick-toggle:checked,
 .quick-toggle:active {
     border-radius: 16px !important;
-    background: rgba(220, 50, 50, 0.75) !important;
+    background: rgba(220, 50, 50, 0.7) !important;
     box-shadow: 
-        0 4px 20px rgba(220, 50, 50, 0.4),
-        inset 0 1px 0 rgba(255, 255, 255, 0.3) !important;
-    transition: all 0.1s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+        0 3px 16px rgba(220, 50, 50, 0.35),
+        inset 0 1px 0 rgba(255, 255, 255, 0.25) !important;
+    transition: background 0.08s ease-out, transform 0.06s ease-out !important;
 }
 
 .quick-toggle:hover {
     border-radius: 16px !important;
-    background: rgba(255, 255, 255, 0.18) !important;
-    transition: all 0.12s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+    background: rgba(255, 255, 255, 0.14) !important;
+    transition: background 0.08s ease-out !important;
 }
 
 .dark-mode .quick-toggle:hover {
-    background: rgba(20, 20, 30, 0.65) !important;
+    background: rgba(10, 10, 15, 0.75) !important;
 }
 
 .quick-toggle .icon,
@@ -335,7 +336,7 @@
 }
 
 /* ============================================================
-   FIX: SUBMENU / DROPDOWN PANEL — Adaptive Blur & Smooth
+   FIX: SUBMENU / DROPDOWN PANEL — Ultra-Responsive, Dark Blur
    ============================================================ */
 
 .liquid-glass-submenu,
@@ -345,15 +346,15 @@
 .aggregate-menu,
 .nm-menu-item,
 .system-switcher {
-    background: rgba(255, 255, 255, 0.15) !important;
-    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    background: rgba(255, 255, 255, 0.1) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
     border-radius: 16px !important;
     box-shadow: 
-        0 12px 48px rgba(0, 0, 0, 0.15),
-        inset 0 1px 0 rgba(255, 255, 255, 0.3) !important;
+        0 8px 32px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.25) !important;
     backdrop-filter: blur(20px) !important;
     color: #ffffff !important;
-    transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+    transition: opacity 0.1s ease-out !important;
 }
 
 .dark-mode .liquid-glass-submenu,
@@ -361,47 +362,47 @@
 .dark-mode .quick-menu-toggle .quick-toggle-menu,
 .liquid-glass-submenu.dark-mode,
 .quick-toggle-menu.dark-mode {
-    background: rgba(20, 20, 30, 0.7) !important;
-    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    background: rgba(10, 10, 15, 0.8) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
     box-shadow: 
-        0 12px 48px rgba(0, 0, 0, 0.45),
-        inset 0 1px 0 rgba(255, 255, 255, 0.15) !important;
+        0 8px 32px rgba(0, 0, 0, 0.45),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08) !important;
 }
 
-/* Item di dalam submenu */
+/* Item di dalam submenu - ultra responsive */
 .liquid-glass-submenu .popup-menu-item,
 .quick-toggle-menu .popup-menu-item,
 .nm-menu-item .popup-menu-item {
     background: transparent !important;
     color: #ffffff !important;
     border-radius: 10px !important;
-    transition: all 0.12s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+    transition: background 0.08s ease-out !important;
 }
 
 .liquid-glass-submenu .popup-menu-item:hover,
 .quick-toggle-menu .popup-menu-item:hover,
 .nm-menu-item .popup-menu-item:hover {
-    background: rgba(255, 255, 255, 0.12) !important;
+    background: rgba(255, 255, 255, 0.1) !important;
     border-radius: 10px !important;
-    transition: all 0.1s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+    transition: background 0.06s ease-out !important;
 }
 
 .dark-mode .liquid-glass-submenu .popup-menu-item:hover,
 .dark-mode .quick-toggle-menu .popup-menu-item:hover {
-    background: rgba(255, 255, 255, 0.1) !important;
+    background: rgba(255, 255, 255, 0.08) !important;
 }
 
 .liquid-glass-submenu .popup-menu-item:active,
 .quick-toggle-menu .popup-menu-item:active {
-    background: rgba(255, 255, 255, 0.18) !important;
-    transition: all 0.08s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+    background: rgba(255, 255, 255, 0.15) !important;
+    transition: background 0.05s ease-out !important;
 }
 
 /* Header submenu (judul Wi-Fi, Bluetooth) */
 .liquid-glass-submenu .popup-menu-item:first-child,
 .quick-toggle-menu .popup-menu-item:first-child {
-    background: rgba(255, 255, 255, 0.08) !important;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.15) !important;
+    background: rgba(255, 255, 255, 0.06) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
     border-radius: 16px 16px 0 0 !important;
     font-weight: bold !important;
     color: #ffffff !important;
@@ -410,81 +411,39 @@
 /* Separator */
 .liquid-glass-submenu .popup-separator-menu-item,
 .quick-toggle-menu .popup-separator-menu-item {
-    background-color: rgba(255, 255, 255, 0.15) !important;
+    background-color: rgba(255, 255, 255, 0.1) !important;
     margin: 8px 12px !important;
 }
 
 .dark-mode .liquid-glass-submenu .popup-separator-menu-item,
 .dark-mode .quick-toggle-menu .popup-separator-menu-item {
-    background-color: rgba(255, 255, 255, 0.1) !important;
+    background-color: rgba(255, 255, 255, 0.08) !important;
 }
 
 /* ============================================================
-   ANIMASI LIQUID DROP — Ultra-Smooth, No Performance Hit
+   ANIMASI LIQUID DROP — Removed for Max Performance
    ============================================================ */
 
-/* Ripple container - simplified for better performance */
+/* Ripple container - DISABLED for better performance */
 .quick-toggle::after,
 .button::after,
 .popup-menu-item::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 0;
-    height: 0;
-    border-radius: 50%;
-    background: radial-gradient(
-        circle,
-        rgba(255, 255, 255, 0.3) 0%,
-        rgba(255, 255, 255, 0.08) 50%,
-        transparent 70%
-    );
-    transform: translate(-50%, -50%);
-    opacity: 0;
-    pointer-events: none;
-    transition: none;
+    content: none;
 }
 
-/* Saat diklik — expand seperti riak air (optimized) */
-.quick-toggle:active::after,
-.button:active::after,
-.popup-menu-item:active::after {
-    width: 180px;
-    height: 180px;
-    opacity: 1;
-    transition: 
-        width 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-        height 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-        opacity 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-/* Efek "squish" saat ditekan — lightweight */
+/* Efek "squish" saat ditekan - removed for instant response */
 .quick-toggle:active,
 .button:active,
 .popup-menu-item:active {
-    transform: scale(0.97) !important;
-    transition: transform 0.1s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+    transform: scale(0.98) !important;
+    transition: transform 0.05s ease-out !important;
 }
 
 .quick-toggle,
 .button,
 .popup-menu-item {
     transform: scale(1) !important;
-    transition: transform 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
-}
-
-/* Remove heavy bounce animation for better performance */
-/* Efek "bounce" saat release — disabled for smoothness */
-
-/* Ripple effect untuk toggle yang checked */
-.quick-toggle:checked:active::after {
-    background: radial-gradient(
-        circle,
-        rgba(255, 255, 255, 0.5) 0%,
-        rgba(255, 255, 255, 0.15) 50%,
-        transparent 70%
-    );
+    transition: transform 0.1s ease-out !important;
 }
 
 /* ============================================================
@@ -492,37 +451,37 @@
    ============================================================ */
 
 .quick-slider .slider-bin {
-    background: rgba(255, 255, 255, 0.12) !important;
+    background: rgba(255, 255, 255, 0.1) !important;
     border-radius: 12px !important;
-    border: 1px solid rgba(255, 255, 255, 0.2) !important;
-    box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.15) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.1) !important;
     backdrop-filter: blur(20px);
-    transition: all 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition: background 0.1s ease-out;
 }
 
 .dark-mode .quick-slider .slider-bin,
 .quick-slider .slider-bin.dark-mode {
-    background: rgba(20, 20, 30, 0.5) !important;
-    border: 1px solid rgba(255, 255, 255, 0.15) !important;
-    box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.35) !important;
+    background: rgba(10, 10, 15, 0.6) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.3) !important;
 }
 
 .quick-slider .slider-bin:hover {
-    background: rgba(255, 255, 255, 0.18) !important;
-    transition: all 0.12s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    background: rgba(255, 255, 255, 0.14) !important;
+    transition: background 0.08s ease-out;
 }
 
 .dark-mode .quick-slider .slider-bin:hover {
-    background: rgba(20, 20, 30, 0.6) !important;
+    background: rgba(10, 10, 15, 0.7) !important;
 }
 
 /* ============================================================
-   GLOBAL ANIMATIONS & RESPONSIVE FIXES — Ultra-Smooth
+   GLOBAL ANIMATIONS & RESPONSIVE FIXES — Ultra-Responsive
    ============================================================ */
 
 #overviewGroup {
-    transition: opacity 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
-                background-color 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition: opacity 0.15s ease-out, 
+                background-color 0.15s ease-out;
 }
 
 StScrollView.vfade {
@@ -538,9 +497,9 @@ StScrollView.vfade {
     box-sizing: border-box;
 }
 
-/* Smooth scrolling untuk semua scrollable areas — optimized */
+/* Smooth scrolling untuk semua scrollable areas — optimized for speed */
 StScrollView {
-    transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition: opacity 0.12s ease-out;
 }
 
 /* Fix untuk responsive layout — pastikan elemen tidak overflow */
