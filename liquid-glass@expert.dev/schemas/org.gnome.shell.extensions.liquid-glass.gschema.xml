@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist gettext-domain="liquid-glass">
+  <schema id="org.gnome.shell.extensions.liquid-glass" path="/org/gnome/shell/extensions/liquid-glass/">
+    <key name="blur-strength" type="i">
+      <default>40</default>
+      <summary>Blur Strength</summary>
+      <description>Radius of the blur effect in pixels (0-100).</description>
+      <range min="0" max="100"/>
+    </key>
+    <key name="darkness-level" type="d">
+      <default>0.85</default>
+      <summary>Darkness Level</summary>
+      <description>Opacity of the dark background overlay (0.0 - 1.0).</description>
+      <range min="0.0" max="1.0"/>
+    </key>
+    <key name="saturation-level" type="d">
+      <default>1.3</default>
+      <summary>Saturation Level</summary>
+      <description>Color saturation multiplier for the bokeh effect (0.0 - 2.0).</description>
+      <range min="0.0" max="2.0"/>
+    </key>
+    <key name="enable-rounding" type="b">
+      <default>true</default>
+      <summary>Enable Rounded Corners</summary>
+      <description>Apply rounded corners to all panels and menus.</description>
+    </key>
+    <key name="corner-radius" type="i">
+      <default>14</default>
+      <summary>Corner Radius</summary>
+      <description>Radius of rounded corners in pixels.</description>
+      <range min="0" max="30"/>
+    </key>
+  </schema>
+</schemalist>
