@@ -15,7 +15,7 @@ export default class LiquidGlassExtension extends Extension {
     }
 
     enable() {
-        // Blur effects
+        // Blur effects - optimized for performance
         this._addBlur(Main.panel, 12, 1.0);
         if (Main.layoutManager.overviewGroup) {
             this._addBlur(Main.layoutManager.overviewGroup, 24, 1.1);
@@ -30,14 +30,11 @@ export default class LiquidGlassExtension extends Extension {
             this._addStyleClass(Main.overview.dash, 'liquid-glass-dash');
         }
 
-        // Connect signals untuk track popup/menu changes
+        // Connect signals untuk track popup/menu changes - instant response
         this._connectSignals();
 
-        // Apply ke elemen yang sudah ada dengan delay
-        this._timeoutId = GLib.timeout_add(GLib.PRIORITY_DEFAULT, 500, () => {
-            this._scanExistingElements();
-            return GLib.SOURCE_REMOVE;
-        });
+        // Apply ke elemen yang sudah ada - INSTANT, no delay
+        this._scanExistingElements();
     }
 
     _connectSignals() {
@@ -71,19 +68,16 @@ export default class LiquidGlassExtension extends Extension {
     _trackPopupMenu(menu) {
         if (!menu) return;
 
-        // Track when menu opens
+        // Track when menu opens - INSTANT response
         const openSignal = menu.connect('open-state-changed', (menu, isOpen) => {
             if (isOpen) {
-                // Delay sebentar untuk memastikan semua elemen sudah di-render
-                GLib.timeout_add(GLib.PRIORITY_DEFAULT, 100, () => {
-                    this._scanExistingElements();
-                    return GLib.SOURCE_REMOVE;
-                });
+                // Apply immediately - no delay
+                this._scanExistingElements();
             }
         });
         this._signalIds.push({ actor: menu, id: openSignal });
 
-        // Track actor additions dalam menu
+        // Track actor additions dalam menu - instant
         const addedSignal = menu.actor.connect('actor-added', (parent, child) => {
             this._applyToDynamicElement(child);
         });
@@ -158,12 +152,9 @@ export default class LiquidGlassExtension extends Extension {
 
         this._checkAndApplyClasses(actor, targetClassNames);
 
-        // Jika actor punya children, scan juga
+        // Jika actor punya children, scan juga - INSTANT
         if (actor.get_children) {
-            GLib.timeout_add(GLib.PRIORITY_DEFAULT, 50, () => {
-                this._recursiveScan(actor, targetClassNames);
-                return GLib.SOURCE_REMOVE;
-            });
+            this._recursiveScan(actor, targetClassNames);
         }
     }
 
@@ -187,7 +178,7 @@ export default class LiquidGlassExtension extends Extension {
     }
 
     disable() {
-        // Remove timeout
+        // Remove timeout (if any)
         if (this._timeoutId) {
             GLib.source_remove(this._timeoutId);
             this._timeoutId = null;
