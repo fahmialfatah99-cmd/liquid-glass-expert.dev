@@ -1,6 +1,62 @@
 /* ============================================================
-   LIQUID GLASS UI v2 — Fixed Submenu, Readability, Liquid Drop
+   LIQUID GLASS UI v3 — Fixed Top Bar Text, Responsive, Smooth
    ============================================================ */
+
+/* === TOP BAR / PANEL — FIX TEXT WARNA PUTIH === */
+#panel {
+    background: rgba(20, 20, 30, 0.6) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
+    box-shadow: 
+        0 4px 20px rgba(0, 0, 0, 0.3), 
+        inset 0 1px 0 rgba(255, 255, 255, 0.25) !important;
+    backdrop-filter: blur(16px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#panel .panel-button,
+#panel StIcon,
+#panel StLabel,
+#panel .app-menu,
+#panel .clock-display,
+#panel .date-menu,
+#panel .system-status-icon {
+    color: #ffffff !important;
+    icon-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+#panel .panel-button:hover {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border-radius: 8px;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#panel .panel-button:active {
+    background: rgba(255, 255, 255, 0.15) !important;
+    transform: scale(0.98);
+    transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#panel .clock-display StLabel,
+#panel .date-menu StLabel,
+#panel .system-status-label {
+    color: #ffffff !important;
+    font-weight: 500;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+}
+
+/* Fix untuk menu dropdown di panel */
+#panel .popup-menu-content {
+    color: #ffffff !important;
+}
+
+#panel .popup-menu-item {
+    color: #ffffff !important;
+}
+
+#panel .popup-menu-item:hover {
+    background: rgba(255, 255, 255, 0.12) !important;
+}
 
 /* === LIQUID GLASS PANEL === */
 .liquid-glass-panel {
@@ -322,7 +378,7 @@
 }
 
 /* ============================================================
-   GLOBAL ANIMATIONS
+   GLOBAL ANIMATIONS & RESPONSIVE FIXES
    ============================================================ */
 
 #overviewGroup {
@@ -336,4 +392,65 @@ StScrollView.vfade {
 
 .system-status-icon {
     icon-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+/* === RESPONSIVE & SMOOTH SCROLLING === */
+* {
+    box-sizing: border-box;
+}
+
+/* Smooth scrolling untuk semua scrollable areas */
+StScrollView {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Fix untuk responsive layout — pastikan elemen tidak overflow */
+#panel,
+.liquid-glass-panel,
+.liquid-glass-dash,
+.popup-menu-content,
+.quick-toggle-menu {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+/* Fix untuk text wrapping agar tidak terpotong */
+#panel StLabel,
+.popup-menu-item StLabel,
+.quick-toggle .label {
+    clip: false;
+    x-align: start;
+}
+
+/* Ensure proper spacing pada different screen sizes */
+@media (max-width: 768px) {
+    #panel {
+        padding: 0 8px;
+    }
+    
+    .quick-toggle {
+        min-width: 80px;
+    }
+}
+
+/* === EXTRA SMOOTH TRANSITIONS === */
+.panel-button,
+.system-status-icon,
+.clock-display,
+.date-menu {
+    transition-property: background-color, border, box-shadow, transform;
+    transition-duration: 0.25s;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Hover effects yang lebih smooth */
+.panel-button:hover .app-menu,
+.panel-button:hover .clock-display,
+.panel-button:hover .date-menu {
+    transition: all 0.2s ease-out;
+}
+
+/* Active state dengan feedback yang jelas */
+.panel-button:active {
+    transition-duration: 0.1s;
 }
