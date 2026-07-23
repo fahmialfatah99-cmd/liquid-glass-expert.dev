@@ -1,14 +1,14 @@
 /* ============================================================
-   LIQUID GLASS UI v5 — Ultra-Responsive, Adaptive Blur
+   LIQUID GLASS UI v6 — Fixed Light/Dark Mode, Ultra-Responsive
    ============================================================ */
 
-/* === TOP BAR / PANEL — ADAPTIVE BLUR & WHITE TEXT === */
+/* === TOP BAR / PANEL — FIXED LIGHT MODE VISIBILITY === */
 #panel {
-    background: rgba(255, 255, 255, 0.12) !important;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.25) !important;
+    background: rgba(240, 240, 245, 0.75) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4) !important;
     box-shadow: 
-        0 2px 12px rgba(0, 0, 0, 0.08), 
-        inset 0 1px 0 rgba(255, 255, 255, 0.35) !important;
+        0 2px 12px rgba(0, 0, 0, 0.12), 
+        inset 0 1px 0 rgba(255, 255, 255, 0.5) !important;
     backdrop-filter: blur(20px);
     transition: background 0.12s ease-out;
 }
@@ -16,13 +16,14 @@
 /* Dark mode - dark transparent background */
 .dark-mode #panel,
 #panel.dark-mode {
-    background: rgba(10, 10, 15, 0.75) !important;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.12) !important;
+    background: rgba(15, 15, 20, 0.85) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15) !important;
     box-shadow: 
-        0 2px 12px rgba(0, 0, 0, 0.5), 
-        inset 0 1px 0 rgba(255, 255, 255, 0.08) !important;
+        0 2px 12px rgba(0, 0, 0, 0.6), 
+        inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
 }
 
+/* Text color - adaptive for light/dark mode */
 #panel .panel-button,
 #panel StIcon,
 #panel StLabel,
@@ -30,87 +31,131 @@
 #panel .clock-display,
 #panel .date-menu,
 #panel .system-status-icon {
-    color: #ffffff !important;
-    icon-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    color: #1a1a1a !important;
+    icon-shadow: 0 1px 2px rgba(255, 255, 255, 0.3);
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.3);
     transition: all 0.1s ease-out;
 }
 
+/* Dark mode text - white */
+.dark-mode #panel .panel-button,
+.dark-mode #panel StIcon,
+.dark-mode #panel StLabel,
+.dark-mode #panel .app-menu,
+.dark-mode #panel .clock-display,
+.dark-mode #panel .date-menu,
+.dark-mode #panel .system-status-icon,
+#panel.dark-mode .panel-button,
+#panel.dark-mode StIcon,
+#panel.dark-mode StLabel {
+    color: #f5f5f5 !important;
+    icon-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
 #panel .panel-button:hover {
-    background: rgba(255, 255, 255, 0.1) !important;
+    background: rgba(255, 255, 255, 0.2) !important;
     border-radius: 8px;
     transition: all 0.1s ease-out;
 }
 
+.dark-mode #panel .panel-button:hover {
+    background: rgba(255, 255, 255, 0.12) !important;
+}
+
 #panel .panel-button:active,
 #panel .panel-button:checked {
-    background: rgba(255, 255, 255, 0.15) !important;
+    background: rgba(255, 255, 255, 0.25) !important;
     transform: scale(0.98);
     transition: all 0.08s ease-out;
+}
+
+.dark-mode #panel .panel-button:active,
+.dark-mode #panel .panel-button:checked {
+    background: rgba(255, 255, 255, 0.15) !important;
 }
 
 #panel .clock-display StLabel,
 #panel .date-menu StLabel,
 #panel .system-status-label {
-    color: #ffffff !important;
+    color: #1a1a1a !important;
     font-weight: 500;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.4);
+}
+
+.dark-mode #panel .clock-display StLabel,
+.dark-mode #panel .date-menu StLabel,
+.dark-mode #panel .system-status-label {
+    color: #f5f5f5 !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 /* Fix untuk menu dropdown di panel - responsive */
 #panel .popup-menu-content {
-    color: #ffffff !important;
+    color: #1a1a1a !important;
+}
+
+.dark-mode #panel .popup-menu-content {
+    color: #f5f5f5 !important;
 }
 
 #panel .popup-menu-item {
-    color: #ffffff !important;
+    color: #1a1a1a !important;
+}
+
+.dark-mode #panel .popup-menu-item {
+    color: #f5f5f5 !important;
 }
 
 #panel .popup-menu-item:hover {
+    background: rgba(255, 255, 255, 0.15) !important;
+}
+
+.dark-mode #panel .popup-menu-item:hover {
     background: rgba(255, 255, 255, 0.1) !important;
 }
 
-/* === LIQUID GLASS PANEL — ADAPTIVE BLUR === */
+/* === LIQUID GLASS PANEL — FIXED LIGHT/DARK MODE === */
 .liquid-glass-panel {
-    background: rgba(255, 255, 255, 0.1) !important;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
+    background: rgba(240, 240, 245, 0.7) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4) !important;
     box-shadow: 
-        0 2px 12px rgba(0, 0, 0, 0.08), 
-        inset 0 1px 0 rgba(255, 255, 255, 0.3) !important;
+        0 2px 12px rgba(0, 0, 0, 0.12), 
+        inset 0 1px 0 rgba(255, 255, 255, 0.5) !important;
     backdrop-filter: blur(20px);
     transition: background 0.12s ease-out;
 }
 
 .dark-mode .liquid-glass-panel,
 .liquid-glass-panel.dark-mode {
-    background: rgba(10, 10, 15, 0.7) !important;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+    background: rgba(15, 15, 20, 0.85) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15) !important;
     box-shadow: 
-        0 2px 12px rgba(0, 0, 0, 0.45), 
-        inset 0 1px 0 rgba(255, 255, 255, 0.08) !important;
+        0 2px 12px rgba(0, 0, 0, 0.6), 
+        inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
 }
 
 .liquid-glass-panel:hover {
-    background: rgba(255, 255, 255, 0.14) !important;
+    background: rgba(240, 240, 245, 0.8) !important;
     box-shadow: 
-        0 4px 16px rgba(0, 0, 0, 0.1), 
-        inset 0 1px 0 rgba(255, 255, 255, 0.35) !important;
+        0 4px 16px rgba(0, 0, 0, 0.15), 
+        inset 0 1px 0 rgba(255, 255, 255, 0.5) !important;
     transition: background 0.1s ease-out;
 }
 
 .dark-mode .liquid-glass-panel:hover {
-    background: rgba(10, 10, 15, 0.8) !important;
+    background: rgba(15, 15, 20, 0.9) !important;
 }
 
-/* === LIQUID GLASS DASH & OVERVIEW — ADAPTIVE BLUR === */
+/* === LIQUID GLASS DASH & OVERVIEW — FIXED LIGHT/DARK MODE === */
 .liquid-glass-dash,
 .liquid-glass-dash-bg {
-    background: rgba(255, 255, 255, 0.08) !important;
-    border: 1px solid rgba(255, 255, 255, 0.25) !important;
+    background: rgba(240, 240, 245, 0.65) !important;
+    border: 1px solid rgba(255, 255, 255, 0.4) !important;
     border-radius: 18px !important;
     box-shadow: 
-        0 8px 32px rgba(0, 0, 0, 0.1), 
-        inset 0 1px 0 rgba(255, 255, 255, 0.3) !important;
+        0 8px 32px rgba(0, 0, 0, 0.12), 
+        inset 0 1px 0 rgba(255, 255, 255, 0.5) !important;
     backdrop-filter: blur(20px);
     transition: background 0.15s ease-out;
 }
@@ -119,191 +164,195 @@
 .dark-mode .liquid-glass-dash-bg,
 .liquid-glass-dash.dark-mode,
 .liquid-glass-dash-bg.dark-mode {
-    background: rgba(10, 10, 15, 0.65) !important;
-    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    background: rgba(15, 15, 20, 0.8) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
     box-shadow: 
-        0 8px 32px rgba(0, 0, 0, 0.4), 
-        inset 0 1px 0 rgba(255, 255, 255, 0.08) !important;
+        0 8px 32px rgba(0, 0, 0, 0.6), 
+        inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
 }
 
 .liquid-glass-dash:hover,
 .liquid-glass-dash-bg:hover {
-    background: rgba(255, 255, 255, 0.12) !important;
+    background: rgba(240, 240, 245, 0.75) !important;
     box-shadow: 
-        0 10px 36px rgba(0, 0, 0, 0.12), 
-        inset 0 1px 0 rgba(255, 255, 255, 0.35) !important;
+        0 10px 36px rgba(0, 0, 0, 0.15), 
+        inset 0 1px 0 rgba(255, 255, 255, 0.5) !important;
     transition: background 0.12s ease-out;
 }
 
 .dark-mode .liquid-glass-dash:hover,
 .dark-mode .liquid-glass-dash-bg:hover {
-    background: rgba(10, 10, 15, 0.75) !important;
+    background: rgba(15, 15, 20, 0.88) !important;
 }
 
-/* === SEARCH ENTRY — ADAPTIVE BLUR === */
+/* === SEARCH ENTRY — FIXED LIGHT/DARK MODE === */
 .search-entry {
-    background: rgba(255, 255, 255, 0.1) !important;
-    border: 1px solid rgba(255, 255, 255, 0.25) !important;
+    background: rgba(240, 240, 245, 0.7) !important;
+    border: 1px solid rgba(255, 255, 255, 0.4) !important;
     border-radius: 14px !important;
     box-shadow: 
-        0 6px 24px rgba(0, 0, 0, 0.08), 
-        inset 0 1px 0 rgba(255, 255, 255, 0.25) !important;
+        0 6px 24px rgba(0, 0, 0, 0.12), 
+        inset 0 1px 0 rgba(255, 255, 255, 0.5) !important;
     backdrop-filter: blur(20px);
     transition: background 0.12s ease-out, border-color 0.12s ease-out;
-    color: #ffffff !important;
+    color: #1a1a1a !important;
 }
 
 .dark-mode .search-entry,
 .search-entry.dark-mode {
-    background: rgba(10, 10, 15, 0.65) !important;
-    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    background: rgba(15, 15, 20, 0.8) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
     box-shadow: 
-        0 6px 24px rgba(0, 0, 0, 0.35), 
-        inset 0 1px 0 rgba(255, 255, 255, 0.08) !important;
+        0 6px 24px rgba(0, 0, 0, 0.6), 
+        inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+    color: #f5f5f5 !important;
 }
 
 .search-entry:focus {
-    background: rgba(255, 255, 255, 0.15) !important;
-    border-color: rgba(255, 255, 255, 0.4) !important;
+    background: rgba(240, 240, 245, 0.8) !important;
+    border-color: rgba(255, 255, 255, 0.5) !important;
     box-shadow: 
-        0 8px 28px rgba(0, 0, 0, 0.1), 
-        inset 0 1px 0 rgba(255, 255, 255, 0.3) !important;
+        0 8px 28px rgba(0, 0, 0, 0.15), 
+        inset 0 1px 0 rgba(255, 255, 255, 0.5) !important;
     transition: background 0.1s ease-out, border-color 0.1s ease-out;
 }
 
 .dark-mode .search-entry:focus,
 .search-entry.dark-mode:focus {
-    background: rgba(10, 10, 15, 0.75) !important;
+    background: rgba(15, 15, 20, 0.88) !important;
 }
 
-/* === OVERVIEW CONTROLS — ADAPTIVE BLUR === */
+/* === OVERVIEW CONTROLS — FIXED LIGHT/DARK MODE === */
 .overview-controls {
-    background: rgba(255, 255, 255, 0.1) !important;
-    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    background: rgba(240, 240, 245, 0.7) !important;
+    border: 1px solid rgba(255, 255, 255, 0.4) !important;
     border-radius: 16px !important;
     box-shadow: 
-        0 6px 24px rgba(0, 0, 0, 0.08), 
-        inset 0 1px 0 rgba(255, 255, 255, 0.25) !important;
+        0 6px 24px rgba(0, 0, 0, 0.12), 
+        inset 0 1px 0 rgba(255, 255, 255, 0.5) !important;
     backdrop-filter: blur(20px);
     transition: background 0.12s ease-out;
 }
 
 .dark-mode .overview-controls,
 .overview-controls.dark-mode {
-    background: rgba(10, 10, 15, 0.65) !important;
-    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    background: rgba(15, 15, 20, 0.85) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
     box-shadow: 
-        0 6px 24px rgba(0, 0, 0, 0.35), 
-        inset 0 1px 0 rgba(255, 255, 255, 0.08) !important;
+        0 6px 24px rgba(0, 0, 0, 0.6), 
+        inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
 }
 
 /* === APP ICONS HOVER — SMOOTH TRANSITIONS === */
 .app-well-app:hover .overview-icon,
 .grid-search-result:hover .overview-icon {
-    background: rgba(255, 255, 255, 0.12) !important;
+    background: rgba(255, 255, 255, 0.3) !important;
     border-radius: 12px !important;
     box-shadow: 
-        0 4px 16px rgba(0, 0, 0, 0.08), 
-        inset 0 1px 0 rgba(255, 255, 255, 0.25) !important;
+        0 4px 16px rgba(0, 0, 0, 0.12), 
+        inset 0 1px 0 rgba(255, 255, 255, 0.5) !important;
     transition: background 0.1s ease-out;
 }
 
 .dark-mode .app-well-app:hover .overview-icon,
 .dark-mode .grid-search-result:hover .overview-icon {
-    background: rgba(255, 255, 255, 0.08) !important;
+    background: rgba(255, 255, 255, 0.15) !important;
 }
 
-/* === NOTIFICATIONS — ADAPTIVE BLUR === */
+/* === NOTIFICATIONS — FIXED LIGHT/DARK MODE === */
 .notification,
 .message-list-section {
-    background: rgba(255, 255, 255, 0.1) !important;
-    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    background: rgba(240, 240, 245, 0.7) !important;
+    border: 1px solid rgba(255, 255, 255, 0.4) !important;
     border-radius: 14px !important;
-    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.1) !important;
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.12) !important;
     backdrop-filter: blur(20px);
     transition: background 0.12s ease-out;
-    color: #ffffff !important;
+    color: #1a1a1a !important;
 }
 
 .dark-mode .notification,
 .dark-mode .message-list-section,
 .notification.dark-mode,
 .message-list-section.dark-mode {
-    background: rgba(10, 10, 15, 0.7) !important;
-    border: 1px solid rgba(255, 255, 255, 0.1) !important;
-    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.4) !important;
+    background: rgba(15, 15, 20, 0.85) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.6) !important;
+    color: #f5f5f5 !important;
 }
 
 .notification:hover {
-    background: rgba(255, 255, 255, 0.15) !important;
-    box-shadow: 0 10px 32px rgba(0, 0, 0, 0.12) !important;
+    background: rgba(240, 240, 245, 0.8) !important;
+    box-shadow: 0 10px 32px rgba(0, 0, 0, 0.15) !important;
     transition: background 0.1s ease-out;
 }
 
 .dark-mode .notification:hover {
-    background: rgba(10, 10, 15, 0.8) !important;
-    box-shadow: 0 10px 32px rgba(0, 0, 0, 0.45) !important;
+    background: rgba(15, 15, 20, 0.9) !important;
+    box-shadow: 0 10px 32px rgba(0, 0, 0, 0.65) !important;
 }
 
-/* === POPUP MENUS — ADAPTIVE BLUR (CRITICAL FOR RESPONSIVENESS) === */
+/* === POPUP MENUS — FIXED LIGHT/DARK MODE (CRITICAL FOR RESPONSIVENESS) === */
 .popup-menu-content {
-    background: rgba(255, 255, 255, 0.1) !important;
-    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    background: rgba(240, 240, 245, 0.7) !important;
+    border: 1px solid rgba(255, 255, 255, 0.4) !important;
     border-radius: 14px !important;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1) !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12) !important;
     backdrop-filter: blur(20px);
-    color: #ffffff !important;
+    color: #1a1a1a !important;
     transition: opacity 0.1s ease-out;
 }
 
 .dark-mode .popup-menu-content,
 .popup-menu-content.dark-mode {
-    background: rgba(10, 10, 15, 0.75) !important;
-    border: 1px solid rgba(255, 255, 255, 0.1) !important;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4) !important;
+    background: rgba(15, 15, 20, 0.85) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6) !important;
+    color: #f5f5f5 !important;
 }
 
-/* === WORKSPACE SWITCHER — ADAPTIVE BLUR === */
+/* === WORKSPACE SWITCHER — FIXED LIGHT/DARK MODE === */
 .workspace-switcher-group .workspace-switcher {
-    background: rgba(255, 255, 255, 0.1) !important;
-    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    background: rgba(240, 240, 245, 0.7) !important;
+    border: 1px solid rgba(255, 255, 255, 0.4) !important;
     border-radius: 12px !important;
-    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1) !important;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.12) !important;
     backdrop-filter: blur(20px);
     transition: background 0.12s ease-out;
 }
 
 .dark-mode .workspace-switcher-group .workspace-switcher,
 .workspace-switcher-group .workspace-switcher.dark-mode {
-    background: rgba(10, 10, 15, 0.7) !important;
-    border: 1px solid rgba(255, 255, 255, 0.1) !important;
-    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.35) !important;
+    background: rgba(15, 15, 20, 0.85) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.6) !important;
 }
 
 /* ============================================================
-   FIX: QUICK TOGGLE — Adaptive Blur & Ultra-Responsive
+   FIX: QUICK TOGGLE — Fixed Light/Dark Mode & Ultra-Responsive
    ============================================================ */
 
 .quick-toggle,
 .quick-menu-toggle .quick-toggle {
     border-radius: 16px !important;
-    background: rgba(255, 255, 255, 0.1) !important;
-    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    background: rgba(240, 240, 245, 0.7) !important;
+    border: 1px solid rgba(255, 255, 255, 0.4) !important;
     box-shadow: 
-        0 3px 12px rgba(0, 0, 0, 0.08),
-        inset 0 1px 0 rgba(255, 255, 255, 0.25) !important;
+        0 3px 12px rgba(0, 0, 0, 0.12),
+        inset 0 1px 0 rgba(255, 255, 255, 0.5) !important;
     transition: background 0.1s ease-out, transform 0.08s ease-out !important;
-    color: #ffffff !important;
+    color: #1a1a1a !important;
 }
 
 .dark-mode .quick-toggle,
 .dark-mode .quick-menu-toggle .quick-toggle,
 .quick-toggle.dark-mode {
-    background: rgba(10, 10, 15, 0.65) !important;
-    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    background: rgba(15, 15, 20, 0.85) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
     box-shadow: 
-        0 3px 12px rgba(0, 0, 0, 0.35),
-        inset 0 1px 0 rgba(255, 255, 255, 0.08) !important;
+        0 3px 12px rgba(0, 0, 0, 0.6),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+    color: #f5f5f5 !important;
 }
 
 .quick-toggle:checked,
@@ -318,25 +367,34 @@
 
 .quick-toggle:hover {
     border-radius: 16px !important;
-    background: rgba(255, 255, 255, 0.14) !important;
+    background: rgba(240, 240, 245, 0.8) !important;
     transition: background 0.08s ease-out !important;
 }
 
 .dark-mode .quick-toggle:hover {
-    background: rgba(10, 10, 15, 0.75) !important;
+    background: rgba(15, 15, 20, 0.9) !important;
 }
 
 .quick-toggle .icon,
 .quick-toggle .label {
-    color: #ffffff !important;
+    color: #1a1a1a !important;
+}
+
+.dark-mode .quick-toggle .icon,
+.dark-mode .quick-toggle .label {
+    color: #f5f5f5 !important;
 }
 
 .quick-toggle .subtitle {
-    color: rgba(255, 255, 255, 0.85) !important;
+    color: rgba(26, 26, 26, 0.85) !important;
+}
+
+.dark-mode .quick-toggle .subtitle {
+    color: rgba(245, 245, 245, 0.85) !important;
 }
 
 /* ============================================================
-   FIX: SUBMENU / DROPDOWN PANEL — Ultra-Responsive, Dark Blur
+   FIX: SUBMENU / DROPDOWN PANEL — Fixed Light/Dark Mode, Ultra-Responsive
    ============================================================ */
 
 .liquid-glass-submenu,
@@ -346,14 +404,14 @@
 .aggregate-menu,
 .nm-menu-item,
 .system-switcher {
-    background: rgba(255, 255, 255, 0.1) !important;
-    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    background: rgba(240, 240, 245, 0.7) !important;
+    border: 1px solid rgba(255, 255, 255, 0.4) !important;
     border-radius: 16px !important;
     box-shadow: 
-        0 8px 32px rgba(0, 0, 0, 0.1),
-        inset 0 1px 0 rgba(255, 255, 255, 0.25) !important;
+        0 8px 32px rgba(0, 0, 0, 0.12),
+        inset 0 1px 0 rgba(255, 255, 255, 0.5) !important;
     backdrop-filter: blur(20px) !important;
-    color: #ffffff !important;
+    color: #1a1a1a !important;
     transition: opacity 0.1s ease-out !important;
 }
 
@@ -362,11 +420,12 @@
 .dark-mode .quick-menu-toggle .quick-toggle-menu,
 .liquid-glass-submenu.dark-mode,
 .quick-toggle-menu.dark-mode {
-    background: rgba(10, 10, 15, 0.8) !important;
-    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    background: rgba(15, 15, 20, 0.85) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
     box-shadow: 
-        0 8px 32px rgba(0, 0, 0, 0.45),
-        inset 0 1px 0 rgba(255, 255, 255, 0.08) !important;
+        0 8px 32px rgba(0, 0, 0, 0.6),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+    color: #f5f5f5 !important;
 }
 
 /* Item di dalam submenu - ultra responsive */
@@ -374,50 +433,67 @@
 .quick-toggle-menu .popup-menu-item,
 .nm-menu-item .popup-menu-item {
     background: transparent !important;
-    color: #ffffff !important;
+    color: #1a1a1a !important;
     border-radius: 10px !important;
     transition: background 0.08s ease-out !important;
+}
+
+.dark-mode .liquid-glass-submenu .popup-menu-item,
+.dark-mode .quick-toggle-menu .popup-menu-item,
+.dark-mode .nm-menu-item .popup-menu-item {
+    color: #f5f5f5 !important;
 }
 
 .liquid-glass-submenu .popup-menu-item:hover,
 .quick-toggle-menu .popup-menu-item:hover,
 .nm-menu-item .popup-menu-item:hover {
-    background: rgba(255, 255, 255, 0.1) !important;
+    background: rgba(255, 255, 255, 0.2) !important;
     border-radius: 10px !important;
     transition: background 0.06s ease-out !important;
 }
 
 .dark-mode .liquid-glass-submenu .popup-menu-item:hover,
 .dark-mode .quick-toggle-menu .popup-menu-item:hover {
-    background: rgba(255, 255, 255, 0.08) !important;
+    background: rgba(255, 255, 255, 0.12) !important;
 }
 
 .liquid-glass-submenu .popup-menu-item:active,
 .quick-toggle-menu .popup-menu-item:active {
-    background: rgba(255, 255, 255, 0.15) !important;
+    background: rgba(255, 255, 255, 0.25) !important;
     transition: background 0.05s ease-out !important;
+}
+
+.dark-mode .liquid-glass-submenu .popup-menu-item:active,
+.dark-mode .quick-toggle-menu .popup-menu-item:active {
+    background: rgba(255, 255, 255, 0.15) !important;
 }
 
 /* Header submenu (judul Wi-Fi, Bluetooth) */
 .liquid-glass-submenu .popup-menu-item:first-child,
 .quick-toggle-menu .popup-menu-item:first-child {
-    background: rgba(255, 255, 255, 0.06) !important;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+    background: rgba(255, 255, 255, 0.15) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
     border-radius: 16px 16px 0 0 !important;
     font-weight: bold !important;
-    color: #ffffff !important;
+    color: #1a1a1a !important;
+}
+
+.dark-mode .liquid-glass-submenu .popup-menu-item:first-child,
+.dark-mode .quick-toggle-menu .popup-menu-item:first-child {
+    background: rgba(255, 255, 255, 0.1) !important;
+    color: #f5f5f5 !important;
 }
 
 /* Separator */
 .liquid-glass-submenu .popup-separator-menu-item,
 .quick-toggle-menu .popup-separator-menu-item {
-    background-color: rgba(255, 255, 255, 0.1) !important;
+    background-color: rgba(0, 0, 0, 0.15) !important;
     margin: 8px 12px !important;
 }
 
 .dark-mode .liquid-glass-submenu .popup-separator-menu-item,
 .dark-mode .quick-toggle-menu .popup-separator-menu-item {
-    background-color: rgba(255, 255, 255, 0.08) !important;
+    background-color: rgba(255, 255, 255, 0.15) !important;
 }
 
 /* ============================================================
@@ -447,32 +523,32 @@
 }
 
 /* ============================================================
-   SLIDER (Volume & Brightness) — Adaptive Blur
+   SLIDER (Volume & Brightness) — Fixed Light/Dark Mode
    ============================================================ */
 
 .quick-slider .slider-bin {
-    background: rgba(255, 255, 255, 0.1) !important;
+    background: rgba(240, 240, 245, 0.7) !important;
     border-radius: 12px !important;
-    border: 1px solid rgba(255, 255, 255, 0.15) !important;
-    box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.1) !important;
+    border: 1px solid rgba(255, 255, 255, 0.4) !important;
+    box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.12) !important;
     backdrop-filter: blur(20px);
     transition: background 0.1s ease-out;
 }
 
 .dark-mode .quick-slider .slider-bin,
 .quick-slider .slider-bin.dark-mode {
-    background: rgba(10, 10, 15, 0.6) !important;
-    border: 1px solid rgba(255, 255, 255, 0.1) !important;
-    box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.3) !important;
+    background: rgba(15, 15, 20, 0.85) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.6) !important;
 }
 
 .quick-slider .slider-bin:hover {
-    background: rgba(255, 255, 255, 0.14) !important;
+    background: rgba(240, 240, 245, 0.8) !important;
     transition: background 0.08s ease-out;
 }
 
 .dark-mode .quick-slider .slider-bin:hover {
-    background: rgba(10, 10, 15, 0.7) !important;
+    background: rgba(15, 15, 20, 0.9) !important;
 }
 
 /* ============================================================
