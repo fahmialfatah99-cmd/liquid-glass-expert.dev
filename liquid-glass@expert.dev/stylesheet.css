@@ -1,0 +1,53 @@
+/* === LIQUID GLASS PANEL === */
+.liquid-glass-panel {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15) !important;
+    box-shadow: 
+        0 4px 16px rgba(0, 0, 0, 0.1), 
+        inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.liquid-glass-panel:hover {
+    background: rgba(255, 255, 255, 0.08) !important;
+    box-shadow: 
+        0 8px 24px rgba(0, 0, 0, 0.15), 
+        inset 0 1px 0 rgba(255, 255, 255, 0.3) !important;
+}
+
+/* === LIQUID GLASS DASH & OVERVIEW === */
+.liquid-glass-dash .dash-background,
+.overview-controls,
+.app-well-app:hover .overview-icon,
+.search-entry {
+    background: rgba(255, 255, 255, 0.08) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    border-radius: 16px !important;
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.15), 
+        inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.liquid-glass-dash .dash-background:hover {
+    background: rgba(255, 255, 255, 0.12) !important;
+    box-shadow: 
+        0 12px 40px rgba(0, 0, 0, 0.2), 
+        inset 0 1px 0 rgba(255, 255, 255, 0.3) !important;
+}
+
+/* === NOTIFICATIONS === */
+.notification,
+.message-list-section {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    border-radius: 12px !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2) !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* === GLOBAL ANIMATIONS (Overview Toggling) === */
+#overviewGroup {
+    transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
+                background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}

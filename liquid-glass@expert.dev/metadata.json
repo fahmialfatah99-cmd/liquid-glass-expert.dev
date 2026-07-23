@@ -1,0 +1,8 @@
+{
+  "uuid": "liquid-glass@expert.dev",
+  "name": "Liquid Glass UI",
+  "description": "Ultra-smooth Liquid Glass aesthetic with dynamic blur and fluid animations.",
+  "version": 1,
+  "shell-version": ["45", "46", "47"],
+  "url": "https://github.com/expert/liquid-glass"
+}
