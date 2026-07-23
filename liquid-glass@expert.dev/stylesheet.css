@@ -1,3 +1,8 @@
+/* ============================================================
+   LIQUID GLASS UI — GNOME Shell Extension (GNOME 45+)
+   Fixed: Quick Toggle border-radius consistency
+   ============================================================ */
+
 /* === LIQUID GLASS PANEL === */
 .liquid-glass-panel {
     background: rgba(255, 255, 255, 0.06) !important;
@@ -134,4 +139,81 @@ StScrollView.vfade {
     border-radius: 12px !important;
     box-shadow: 0 8px 28px rgba(0, 0, 0, 0.15) !important;
     backdrop-filter: blur(8px);
+}
+
+/* ============================================================
+   FIX: QUICK TOGGLE — Konsistenkan border-radius semua state
+   Mencegah bentuk kotak saat :checked / :active / :hover
+   ============================================================ */
+
+.quick-toggle,
+.quick-menu-toggle .quick-toggle {
+    border-radius: 16px !important;
+    background: rgba(255, 255, 255, 0.08) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    box-shadow: 
+        0 4px 16px rgba(0, 0, 0, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+/* State aktif/checked (Wi-Fi, Mode Daya) */
+.quick-toggle:checked,
+.quick-toggle:active {
+    border-radius: 16px !important;
+    background: rgba(220, 50, 50, 0.85) !important;
+    box-shadow: 
+        0 4px 20px rgba(220, 50, 50, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3) !important;
+}
+
+.quick-toggle:hover {
+    border-radius: 16px !important;
+    background: rgba(255, 255, 255, 0.12) !important;
+}
+
+/* Container menu dropdown agar tidak kotak */
+.quick-menu-toggle .quick-toggle-menu {
+    border-radius: 16px !important;
+    background: rgba(30, 30, 30, 0.6) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3) !important;
+    backdrop-filter: blur(12px);
+}
+
+/* Label & Icon Toggle */
+.quick-toggle .icon,
+.quick-toggle .label {
+    color: rgba(255, 255, 255, 0.95) !important;
+}
+
+.quick-toggle:checked .label,
+.quick-toggle:checked .icon {
+    color: #ffffff !important;
+}
+
+/* Sub-label (teks kecil di bawah label utama) */
+.quick-toggle .subtitle {
+    color: rgba(255, 255, 255, 0.75) !important;
+}
+
+.quick-toggle:checked .subtitle {
+    color: rgba(255, 255, 255, 0.9) !important;
+}
+
+/* === QUICK SLIDER (Volume & Brightness) === */
+.quick-slider .slider-bin {
+    background: rgba(255, 255, 255, 0.08) !important;
+    border-radius: 12px !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2) !important;
+}
+
+.quick-slider .slider-bin:hover {
+    background: rgba(255, 255, 255, 0.12) !important;
+}
+
+/* === SYSTEM INDICATOR ICONS (Top Bar) === */
+.system-status-icon {
+    icon-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
