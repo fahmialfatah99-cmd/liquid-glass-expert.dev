@@ -19,6 +19,11 @@ venv/
 .env.local
 .env.*
 
+# Build directories
+dist/
+build/
+target/
+
 # Logs and temp files
 *.log
 *.tmp
@@ -38,15 +43,10 @@ coverage/
 htmlcov/
 .coverage
 
-# Build directories
-dist/
-build/
-target/
-.gradle/
-
-# Python specific
+# Caches
 .mypy_cache/
 .pytest_cache/
+.gradle/
 
 # Compressed files
 *.zip
