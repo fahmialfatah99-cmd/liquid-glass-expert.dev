@@ -2,6 +2,7 @@ import Shell from 'gi://Shell';
 import St from 'gi://St';
 import GLib from 'gi://GLib';
 import Clutter from 'gi://Clutter';
+import Gio from 'gi://Gio';
 import Main from 'ui/main';
 import { Extension } from 'resource:///org/gnome/shell/extensions/extension.js';
 
@@ -11,17 +12,17 @@ export default class LiquidGlassExtension extends Extension {
         this._effects = [];
         this._styleClasses = [];
         this._signalIds = [];
-        this._timeoutId = null;
+        this._settings = null;
     }
 
     enable() {
-        // Blur effects - optimized for performance
-        this._addBlur(Main.panel, 12, 1.0);
+        // Enhanced blur effects - macOS style bokeh
+        this._addBlur(Main.panel, 30, 1.0, 0.8);
         if (Main.layoutManager.overviewGroup) {
-            this._addBlur(Main.layoutManager.overviewGroup, 24, 1.1);
+            this._addBlur(Main.layoutManager.overviewGroup, 40, 1.05, 0.9);
         }
         if (Main.overview.dash) {
-            this._addBlur(Main.overview.dash, 16, 1.0);
+            this._addBlur(Main.overview.dash, 35, 1.0, 0.85);
         }
 
         // Style classes
@@ -35,6 +36,34 @@ export default class LiquidGlassExtension extends Extension {
 
         // Apply ke elemen yang sudah ada - INSTANT, no delay
         this._scanExistingElements();
+        
+        // Monitor theme changes
+        this._monitorThemeChanges();
+    }
+    
+    _monitorThemeChanges() {
+        const interfaceSettings = new Gio.Settings({ schema: 'org.gnome.desktop.interface' });
+        const colorSchemeSignal = interfaceSettings.connect('changed::color-scheme', () => {
+            this._updateThemeMode();
+        });
+        this._signalIds.push({ actor: interfaceSettings, id: colorSchemeSignal });
+        
+        // Initial check
+        this._updateThemeMode();
+    }
+    
+    _updateThemeMode() {
+        if (!Main.uiGroup) return;
+        
+        const interfaceSettings = new Gio.Settings({ schema: 'org.gnome.desktop.interface' });
+        const colorScheme = interfaceSettings.get_string('color-scheme');
+        const isDark = colorScheme.includes('dark') || colorScheme.includes('prefer-dark');
+        
+        if (isDark) {
+            Main.uiGroup.add_style_class_name('dark-mode-global');
+        } else {
+            Main.uiGroup.remove_style_class_name('dark-mode-global');
+        }
     }
 
     _connectSignals() {
@@ -158,13 +187,21 @@ export default class LiquidGlassExtension extends Extension {
         }
     }
 
-    _addBlur(actor, sigma, brightness) {
+    _addBlur(actor, sigma, brightness, blurAmount = 1.0) {
         if (!actor) return;
+        
+        // Remove existing blur effect if any
+        actor.remove_effect_by_name('liquid-glass-blur');
+        
         const effect = new Shell.BlurEffect({
             sigma: sigma,
             brightness: brightness,
             mode: Shell.BlurMode.BACKGROUND
         });
+        
+        // Set blur amount for stronger bokeh effect
+        effect.blur_amount = blurAmount;
+        
         actor.add_effect_with_name('liquid-glass-blur', effect);
         this._effects.push({ actor, name: 'liquid-glass-blur' });
     }
@@ -178,12 +215,6 @@ export default class LiquidGlassExtension extends Extension {
     }
 
     disable() {
-        // Remove timeout (if any)
-        if (this._timeoutId) {
-            GLib.source_remove(this._timeoutId);
-            this._timeoutId = null;
-        }
-
         // Disconnect all signals
         for (const { actor, id } of this._signalIds) {
             if (actor && !actor.is_finalized()) {
@@ -211,6 +242,11 @@ export default class LiquidGlassExtension extends Extension {
             }
         }
         this._styleClasses = [];
+
+        // Remove dark mode global class
+        if (Main.uiGroup && !Main.uiGroup.is_finalized()) {
+            Main.uiGroup.remove_style_class_name('dark-mode-global');
+        }
 
         // Remove dynamic classes from all actors in uiGroup
         if (Main.uiGroup && !Main.uiGroup.is_finalized()) {

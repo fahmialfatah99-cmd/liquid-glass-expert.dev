@@ -1,378 +1,330 @@
 /* ============================================================
-   LIQUID GLASS UI v7 — Ultra-Responsive, Zero Delay, Fixed Light/Dark Mode
+   LIQUID GLASS UI v8 — macOS Style Bokeh Blur, Ultra-Smooth, Perfect Dark Mode
    ============================================================ */
 
-/* === TOP BAR / PANEL — FIXED LIGHT MODE VISIBILITY, ZERO DELAY === */
+/* === GLOBAL DARK MODE DETECTION === */
+.dark-mode-global #panel,
+.dark-mode-global .liquid-glass-panel,
+.dark-mode-global .popup-menu-content,
+.dark-mode-global .quick-toggle-menu,
+.dark-mode-global .liquid-glass-submenu,
+.dark-mode-global .search-entry,
+.dark-mode-global .overview-controls,
+.dark-mode-global .notification,
+.dark-mode-global .liquid-glass-dash,
+.dark-mode-global .workspace-switcher,
+.dark-mode-global .quick-slider .slider-bin {
+    background: rgba(10, 10, 15, 0.92) !important;
+    border-color: rgba(255, 255, 255, 0.12) !important;
+    color: #f5f5f5 !important;
+}
+
+.dark-mode-global #panel StLabel,
+.dark-mode-global #panel StIcon,
+.dark-mode-global .panel-button,
+.dark-mode-global .system-status-icon,
+.dark-mode-global .clock-display,
+.dark-mode-global .date-menu,
+.dark-mode-global .popup-menu-item StLabel,
+.dark-mode-global .quick-toggle .label,
+.dark-mode-global .quick-toggle .icon,
+.dark-mode-global .search-entry,
+.dark-mode-global .overview-controls,
+.dark-mode-global .notification StLabel,
+.dark-mode-global .message-list-section StLabel {
+    color: #f5f5f5 !important;
+    icon-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+.dark-mode-global .popup-separator-menu-item {
+    background-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+/* === TOP BAR / PANEL — macOS Style Bokeh Blur === */
 #panel {
-    background: rgba(240, 240, 245, 0.75) !important;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.4) !important;
+    background: rgba(245, 245, 250, 0.85) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5) !important;
     box-shadow: 
-        0 2px 12px rgba(0, 0, 0, 0.12), 
-        inset 0 1px 0 rgba(255, 255, 255, 0.5) !important;
-    backdrop-filter: blur(20px);
-    transition: none; /* Instant response */
+        0 4px 24px rgba(0, 0, 0, 0.15), 
+        inset 0 1px 0 rgba(255, 255, 255, 0.7) !important;
+    backdrop-filter: blur(40px) saturate(180%);
+    transition-duration: 0ms;
+    transition-timing-function: linear;
 }
 
-/* Dark mode - dark transparent background */
-.dark-mode #panel,
-#panel.dark-mode {
-    background: rgba(15, 15, 20, 0.85) !important;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.15) !important;
+/* Dark mode panel - deep black with bokeh */
+.dark-mode-global #panel {
+    background: rgba(8, 8, 12, 0.95) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
     box-shadow: 
-        0 2px 12px rgba(0, 0, 0, 0.6), 
-        inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+        0 4px 32px rgba(0, 0, 0, 0.8), 
+        inset 0 1px 0 rgba(255, 255, 255, 0.08) !important;
+    backdrop-filter: blur(50px) saturate(150%);
 }
 
-/* Text color - adaptive for light/dark mode, instant response */
+/* Panel buttons - instant response */
 #panel .panel-button,
-#panel StIcon,
-#panel StLabel,
 #panel .app-menu,
 #panel .clock-display,
 #panel .date-menu,
 #panel .system-status-icon {
     color: #1a1a1a !important;
-    icon-shadow: 0 1px 2px rgba(255, 255, 255, 0.3);
-    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.3);
-    transition: none; /* Instant */
-}
-
-/* Dark mode text - white */
-.dark-mode #panel .panel-button,
-.dark-mode #panel StIcon,
-.dark-mode #panel StLabel,
-.dark-mode #panel .app-menu,
-.dark-mode #panel .clock-display,
-.dark-mode #panel .date-menu,
-.dark-mode #panel .system-status-icon,
-#panel.dark-mode .panel-button,
-#panel.dark-mode StIcon,
-#panel.dark-mode StLabel {
-    color: #f5f5f5 !important;
-    icon-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+    icon-shadow: 0 1px 2px rgba(255, 255, 255, 0.4);
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.4);
+    transition-duration: 0ms;
 }
 
 #panel .panel-button:hover {
-    background: rgba(255, 255, 255, 0.2) !important;
-    border-radius: 8px;
-    transition: none; /* Instant hover */
+    background: rgba(255, 255, 255, 0.25) !important;
+    border-radius: 10px;
+    transition-duration: 0ms;
 }
 
-.dark-mode #panel .panel-button:hover {
-    background: rgba(255, 255, 255, 0.12) !important;
+.dark-mode-global #panel .panel-button:hover {
+    background: rgba(255, 255, 255, 0.15) !important;
 }
 
 #panel .panel-button:active,
 #panel .panel-button:checked {
-    background: rgba(255, 255, 255, 0.25) !important;
-    transform: scale(0.98);
-    transition: none; /* Instant click */
+    background: rgba(255, 255, 255, 0.3) !important;
+    transform: scale(0.97);
+    transition-duration: 0ms;
 }
 
-.dark-mode #panel .panel-button:active,
-.dark-mode #panel .panel-button:checked {
-    background: rgba(255, 255, 255, 0.15) !important;
+.dark-mode-global #panel .panel-button:active,
+.dark-mode-global #panel .panel-button:checked {
+    background: rgba(255, 255, 255, 0.18) !important;
 }
 
-#panel .clock-display StLabel,
-#panel .date-menu StLabel,
-#panel .system-status-label {
-    color: #1a1a1a !important;
-    font-weight: 500;
-    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.4);
-}
-
-.dark-mode #panel .clock-display StLabel,
-.dark-mode #panel .date-menu StLabel,
-.dark-mode #panel .system-status-label {
-    color: #f5f5f5 !important;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
-}
-
-/* Fix untuk menu dropdown di panel - responsive */
-#panel .popup-menu-content {
-    color: #1a1a1a !important;
-}
-
-.dark-mode #panel .popup-menu-content {
-    color: #f5f5f5 !important;
-}
-
-#panel .popup-menu-item {
-    color: #1a1a1a !important;
-}
-
-.dark-mode #panel .popup-menu-item {
-    color: #f5f5f5 !important;
-}
-
-#panel .popup-menu-item:hover {
-    background: rgba(255, 255, 255, 0.15) !important;
-}
-
-.dark-mode #panel .popup-menu-item:hover {
-    background: rgba(255, 255, 255, 0.1) !important;
-}
-
-/* === LIQUID GLASS PANEL — FIXED LIGHT/DARK MODE, ZERO DELAY === */
+/* === LIQUID GLASS PANEL — macOS Bokeh === */
 .liquid-glass-panel {
-    background: rgba(240, 240, 245, 0.7) !important;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.4) !important;
+    background: rgba(245, 245, 250, 0.82) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5) !important;
     box-shadow: 
-        0 2px 12px rgba(0, 0, 0, 0.12), 
-        inset 0 1px 0 rgba(255, 255, 255, 0.5) !important;
-    backdrop-filter: blur(20px);
-    transition: none; /* Instant response */
+        0 4px 20px rgba(0, 0, 0, 0.12), 
+        inset 0 1px 0 rgba(255, 255, 255, 0.6) !important;
+    backdrop-filter: blur(40px) saturate(180%);
+    transition-duration: 0ms;
 }
 
-.dark-mode .liquid-glass-panel,
-.liquid-glass-panel.dark-mode {
-    background: rgba(15, 15, 20, 0.85) !important;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.15) !important;
+.dark-mode-global .liquid-glass-panel {
+    background: rgba(8, 8, 12, 0.93) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12) !important;
     box-shadow: 
-        0 2px 12px rgba(0, 0, 0, 0.6), 
-        inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+        0 4px 28px rgba(0, 0, 0, 0.7), 
+        inset 0 1px 0 rgba(255, 255, 255, 0.08) !important;
+    backdrop-filter: blur(50px) saturate(150%);
 }
 
-.liquid-glass-panel:hover {
-    background: rgba(240, 240, 245, 0.8) !important;
-    box-shadow: 
-        0 4px 16px rgba(0, 0, 0, 0.15), 
-        inset 0 1px 0 rgba(255, 255, 255, 0.5) !important;
-    transition: none; /* Instant hover */
-}
-
-.dark-mode .liquid-glass-panel:hover {
-    background: rgba(15, 15, 20, 0.9) !important;
-}
-
-/* === LIQUID GLASS DASH & OVERVIEW — FIXED LIGHT/DARK MODE, ZERO DELAY === */
+/* === LIQUID GLASS DASH & OVERVIEW — macOS Bokeh === */
 .liquid-glass-dash,
 .liquid-glass-dash-bg {
-    background: rgba(240, 240, 245, 0.65) !important;
-    border: 1px solid rgba(255, 255, 255, 0.4) !important;
-    border-radius: 18px !important;
+    background: rgba(245, 245, 250, 0.78) !important;
+    border: 1px solid rgba(255, 255, 255, 0.5) !important;
+    border-radius: 20px !important;
     box-shadow: 
-        0 8px 32px rgba(0, 0, 0, 0.12), 
-        inset 0 1px 0 rgba(255, 255, 255, 0.5) !important;
-    backdrop-filter: blur(20px);
-    transition: none; /* Instant response */
+        0 10px 40px rgba(0, 0, 0, 0.15), 
+        inset 0 1px 0 rgba(255, 255, 255, 0.6) !important;
+    backdrop-filter: blur(45px) saturate(180%);
+    transition-duration: 0ms;
 }
 
-.dark-mode .liquid-glass-dash,
-.dark-mode .liquid-glass-dash-bg,
-.liquid-glass-dash.dark-mode,
-.liquid-glass-dash-bg.dark-mode {
-    background: rgba(15, 15, 20, 0.8) !important;
-    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+.dark-mode-global .liquid-glass-dash,
+.dark-mode-global .liquid-glass-dash-bg {
+    background: rgba(8, 8, 12, 0.9) !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
     box-shadow: 
-        0 8px 32px rgba(0, 0, 0, 0.6), 
-        inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+        0 10px 40px rgba(0, 0, 0, 0.7), 
+        inset 0 1px 0 rgba(255, 255, 255, 0.08) !important;
+    backdrop-filter: blur(50px) saturate(150%);
 }
 
-.liquid-glass-dash:hover,
-.liquid-glass-dash-bg:hover {
-    background: rgba(240, 240, 245, 0.75) !important;
-    box-shadow: 
-        0 10px 36px rgba(0, 0, 0, 0.15), 
-        inset 0 1px 0 rgba(255, 255, 255, 0.5) !important;
-    transition: none; /* Instant hover */
-}
-
-.dark-mode .liquid-glass-dash:hover,
-.dark-mode .liquid-glass-dash-bg:hover {
-    background: rgba(15, 15, 20, 0.88) !important;
-}
-
-/* === SEARCH ENTRY — FIXED LIGHT/DARK MODE, ZERO DELAY === */
+/* === SEARCH ENTRY — macOS Bokeh === */
 .search-entry {
-    background: rgba(240, 240, 245, 0.7) !important;
-    border: 1px solid rgba(255, 255, 255, 0.4) !important;
-    border-radius: 14px !important;
+    background: rgba(245, 245, 250, 0.8) !important;
+    border: 1px solid rgba(255, 255, 255, 0.5) !important;
+    border-radius: 16px !important;
     box-shadow: 
-        0 6px 24px rgba(0, 0, 0, 0.12), 
-        inset 0 1px 0 rgba(255, 255, 255, 0.5) !important;
-    backdrop-filter: blur(20px);
-    transition: none; /* Instant response */
+        0 8px 28px rgba(0, 0, 0, 0.12), 
+        inset 0 1px 0 rgba(255, 255, 255, 0.6) !important;
+    backdrop-filter: blur(40px) saturate(180%);
+    transition-duration: 0ms;
     color: #1a1a1a !important;
 }
 
-.dark-mode .search-entry,
-.search-entry.dark-mode {
-    background: rgba(15, 15, 20, 0.8) !important;
-    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+.dark-mode-global .search-entry {
+    background: rgba(8, 8, 12, 0.9) !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
     box-shadow: 
-        0 6px 24px rgba(0, 0, 0, 0.6), 
-        inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+        0 8px 28px rgba(0, 0, 0, 0.7), 
+        inset 0 1px 0 rgba(255, 255, 255, 0.08) !important;
+    backdrop-filter: blur(50px) saturate(150%);
     color: #f5f5f5 !important;
 }
 
 .search-entry:focus {
-    background: rgba(240, 240, 245, 0.8) !important;
-    border-color: rgba(255, 255, 255, 0.5) !important;
+    background: rgba(245, 245, 250, 0.88) !important;
+    border-color: rgba(255, 255, 255, 0.6) !important;
     box-shadow: 
-        0 8px 28px rgba(0, 0, 0, 0.15), 
-        inset 0 1px 0 rgba(255, 255, 255, 0.5) !important;
-    transition: none; /* Instant focus */
+        0 10px 32px rgba(0, 0, 0, 0.15), 
+        inset 0 1px 0 rgba(255, 255, 255, 0.6) !important;
+    transition-duration: 0ms;
 }
 
-.dark-mode .search-entry:focus,
-.search-entry.dark-mode:focus {
-    background: rgba(15, 15, 20, 0.88) !important;
+.dark-mode-global .search-entry:focus {
+    background: rgba(8, 8, 12, 0.95) !important;
 }
 
-/* === OVERVIEW CONTROLS — FIXED LIGHT/DARK MODE, ZERO DELAY === */
+/* === OVERVIEW CONTROLS — macOS Bokeh === */
 .overview-controls {
-    background: rgba(240, 240, 245, 0.7) !important;
-    border: 1px solid rgba(255, 255, 255, 0.4) !important;
-    border-radius: 16px !important;
+    background: rgba(245, 245, 250, 0.8) !important;
+    border: 1px solid rgba(255, 255, 255, 0.5) !important;
+    border-radius: 18px !important;
     box-shadow: 
-        0 6px 24px rgba(0, 0, 0, 0.12), 
-        inset 0 1px 0 rgba(255, 255, 255, 0.5) !important;
-    backdrop-filter: blur(20px);
-    transition: none; /* Instant response */
+        0 8px 28px rgba(0, 0, 0, 0.12), 
+        inset 0 1px 0 rgba(255, 255, 255, 0.6) !important;
+    backdrop-filter: blur(40px) saturate(180%);
+    transition-duration: 0ms;
 }
 
-.dark-mode .overview-controls,
-.overview-controls.dark-mode {
-    background: rgba(15, 15, 20, 0.85) !important;
-    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+.dark-mode-global .overview-controls {
+    background: rgba(8, 8, 12, 0.92) !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
     box-shadow: 
-        0 6px 24px rgba(0, 0, 0, 0.6), 
-        inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+        0 8px 28px rgba(0, 0, 0, 0.7), 
+        inset 0 1px 0 rgba(255, 255, 255, 0.08) !important;
+    backdrop-filter: blur(50px) saturate(150%);
 }
 
-/* === APP ICONS HOVER — INSTANT RESPONSE === */
+/* === APP ICONS HOVER — Instant Response === */
 .app-well-app:hover .overview-icon,
 .grid-search-result:hover .overview-icon {
-    background: rgba(255, 255, 255, 0.3) !important;
-    border-radius: 12px !important;
+    background: rgba(255, 255, 255, 0.35) !important;
+    border-radius: 14px !important;
     box-shadow: 
-        0 4px 16px rgba(0, 0, 0, 0.12), 
-        inset 0 1px 0 rgba(255, 255, 255, 0.5) !important;
-    transition: none; /* Instant hover */
+        0 6px 20px rgba(0, 0, 0, 0.12), 
+        inset 0 1px 0 rgba(255, 255, 255, 0.6) !important;
+    transition-duration: 0ms;
 }
 
-.dark-mode .app-well-app:hover .overview-icon,
-.dark-mode .grid-search-result:hover .overview-icon {
-    background: rgba(255, 255, 255, 0.15) !important;
+.dark-mode-global .app-well-app:hover .overview-icon,
+.dark-mode-global .grid-search-result:hover .overview-icon {
+    background: rgba(255, 255, 255, 0.18) !important;
 }
 
-/* === NOTIFICATIONS — FIXED LIGHT/DARK MODE, ZERO DELAY === */
+/* === NOTIFICATIONS — macOS Bokeh === */
 .notification,
 .message-list-section {
-    background: rgba(240, 240, 245, 0.7) !important;
-    border: 1px solid rgba(255, 255, 255, 0.4) !important;
-    border-radius: 14px !important;
-    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.12) !important;
-    backdrop-filter: blur(20px);
-    transition: none; /* Instant response */
+    background: rgba(245, 245, 250, 0.8) !important;
+    border: 1px solid rgba(255, 255, 255, 0.5) !important;
+    border-radius: 16px !important;
+    box-shadow: 0 10px 32px rgba(0, 0, 0, 0.12) !important;
+    backdrop-filter: blur(40px) saturate(180%);
+    transition-duration: 0ms;
     color: #1a1a1a !important;
 }
 
-.dark-mode .notification,
-.dark-mode .message-list-section,
-.notification.dark-mode,
-.message-list-section.dark-mode {
-    background: rgba(15, 15, 20, 0.85) !important;
-    border: 1px solid rgba(255, 255, 255, 0.15) !important;
-    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.6) !important;
+.dark-mode-global .notification,
+.dark-mode-global .message-list-section {
+    background: rgba(8, 8, 12, 0.92) !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    box-shadow: 0 10px 32px rgba(0, 0, 0, 0.7) !important;
+    backdrop-filter: blur(50px) saturate(150%);
     color: #f5f5f5 !important;
 }
 
 .notification:hover {
-    background: rgba(240, 240, 245, 0.8) !important;
-    box-shadow: 0 10px 32px rgba(0, 0, 0, 0.15) !important;
-    transition: none; /* Instant hover */
+    background: rgba(245, 245, 250, 0.88) !important;
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.15) !important;
+    transition-duration: 0ms;
 }
 
-.dark-mode .notification:hover {
-    background: rgba(15, 15, 20, 0.9) !important;
-    box-shadow: 0 10px 32px rgba(0, 0, 0, 0.65) !important;
+.dark-mode-global .notification:hover {
+    background: rgba(8, 8, 12, 0.96) !important;
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.75) !important;
 }
 
-/* === POPUP MENUS — FIXED LIGHT/DARK MODE, ZERO DELAY === */
+/* === POPUP MENUS — macOS Bokeh, No Delay Returning from Submenu === */
 .popup-menu-content {
-    background: rgba(240, 240, 245, 0.7) !important;
-    border: 1px solid rgba(255, 255, 255, 0.4) !important;
-    border-radius: 14px !important;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12) !important;
-    backdrop-filter: blur(20px);
+    background: rgba(245, 245, 250, 0.82) !important;
+    border: 1px solid rgba(255, 255, 255, 0.5) !important;
+    border-radius: 16px !important;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15) !important;
+    backdrop-filter: blur(45px) saturate(180%);
     color: #1a1a1a !important;
-    transition: none; /* Instant response */
+    transition-duration: 0ms;
+    padding: 12px !important;
 }
 
-.dark-mode .popup-menu-content,
-.popup-menu-content.dark-mode {
-    background: rgba(15, 15, 20, 0.85) !important;
-    border: 1px solid rgba(255, 255, 255, 0.15) !important;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6) !important;
+.dark-mode-global .popup-menu-content {
+    background: rgba(8, 8, 12, 0.94) !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.75) !important;
+    backdrop-filter: blur(50px) saturate(150%);
     color: #f5f5f5 !important;
 }
 
-/* === WORKSPACE SWITCHER — FIXED LIGHT/DARK MODE, ZERO DELAY === */
+/* === WORKSPACE SWITCHER — macOS Bokeh === */
 .workspace-switcher-group .workspace-switcher {
-    background: rgba(240, 240, 245, 0.7) !important;
-    border: 1px solid rgba(255, 255, 255, 0.4) !important;
-    border-radius: 12px !important;
-    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.12) !important;
-    backdrop-filter: blur(20px);
-    transition: none; /* Instant response */
+    background: rgba(245, 245, 250, 0.8) !important;
+    border: 1px solid rgba(255, 255, 255, 0.5) !important;
+    border-radius: 14px !important;
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.12) !important;
+    backdrop-filter: blur(40px) saturate(180%);
+    transition-duration: 0ms;
 }
 
-.dark-mode .workspace-switcher-group .workspace-switcher,
-.workspace-switcher-group .workspace-switcher.dark-mode {
-    background: rgba(15, 15, 20, 0.85) !important;
-    border: 1px solid rgba(255, 255, 255, 0.15) !important;
-    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.6) !important;
+.dark-mode-global .workspace-switcher-group .workspace-switcher {
+    background: rgba(8, 8, 12, 0.92) !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.7) !important;
+    backdrop-filter: blur(50px) saturate(150%);
 }
 
-/* ============================================================
-   FIX: QUICK TOGGLE — Fixed Light/Dark Mode, Zero Delay
-   ============================================================ */
-
+/* === QUICK TOGGLE — macOS Bokeh, Instant Response === */
 .quick-toggle,
 .quick-menu-toggle .quick-toggle {
-    border-radius: 16px !important;
-    background: rgba(240, 240, 245, 0.7) !important;
-    border: 1px solid rgba(255, 255, 255, 0.4) !important;
+    border-radius: 18px !important;
+    background: rgba(245, 245, 250, 0.8) !important;
+    border: 1px solid rgba(255, 255, 255, 0.5) !important;
     box-shadow: 
-        0 3px 12px rgba(0, 0, 0, 0.12),
-        inset 0 1px 0 rgba(255, 255, 255, 0.5) !important;
-    transition: none !important; /* Instant response */
+        0 4px 16px rgba(0, 0, 0, 0.12),
+        inset 0 1px 0 rgba(255, 255, 255, 0.6) !important;
+    backdrop-filter: blur(40px) saturate(180%);
+    transition-duration: 0ms !important;
     color: #1a1a1a !important;
 }
 
-.dark-mode .quick-toggle,
-.dark-mode .quick-menu-toggle .quick-toggle,
-.quick-toggle.dark-mode {
-    background: rgba(15, 15, 20, 0.85) !important;
-    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+.dark-mode-global .quick-toggle,
+.dark-mode-global .quick-menu-toggle .quick-toggle {
+    background: rgba(8, 8, 12, 0.92) !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
     box-shadow: 
-        0 3px 12px rgba(0, 0, 0, 0.6),
-        inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+        0 4px 16px rgba(0, 0, 0, 0.7),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08) !important;
+    backdrop-filter: blur(50px) saturate(150%);
     color: #f5f5f5 !important;
 }
 
 .quick-toggle:checked,
 .quick-toggle:active {
-    border-radius: 16px !important;
-    background: rgba(220, 50, 50, 0.7) !important;
+    border-radius: 18px !important;
+    background: rgba(220, 50, 50, 0.75) !important;
     box-shadow: 
-        0 3px 16px rgba(220, 50, 50, 0.35),
-        inset 0 1px 0 rgba(255, 255, 255, 0.25) !important;
-    transition: none !important; /* Instant toggle */
+        0 4px 20px rgba(220, 50, 50, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3) !important;
+    transition-duration: 0ms !important;
 }
 
 .quick-toggle:hover {
-    border-radius: 16px !important;
-    background: rgba(240, 240, 245, 0.8) !important;
-    transition: none !important; /* Instant hover */
+    border-radius: 18px !important;
+    background: rgba(245, 245, 250, 0.88) !important;
+    transition-duration: 0ms !important;
 }
 
-.dark-mode .quick-toggle:hover {
-    background: rgba(15, 15, 20, 0.9) !important;
+.dark-mode-global .quick-toggle:hover {
+    background: rgba(8, 8, 12, 0.96) !important;
 }
 
 .quick-toggle .icon,
@@ -380,8 +332,8 @@
     color: #1a1a1a !important;
 }
 
-.dark-mode .quick-toggle .icon,
-.dark-mode .quick-toggle .label {
+.dark-mode-global .quick-toggle .icon,
+.dark-mode-global .quick-toggle .label {
     color: #f5f5f5 !important;
 }
 
@@ -389,14 +341,11 @@
     color: rgba(26, 26, 26, 0.85) !important;
 }
 
-.dark-mode .quick-toggle .subtitle {
+.dark-mode-global .quick-toggle .subtitle {
     color: rgba(245, 245, 245, 0.85) !important;
 }
 
-/* ============================================================
-   FIX: SUBMENU / DROPDOWN PANEL — Fixed Light/Dark Mode, Zero Delay
-   ============================================================ */
-
+/* === SUBMENU / DROPDOWN — macOS Bokeh, Zero Delay on Return === */
 .liquid-glass-submenu,
 .quick-toggle-menu,
 .quick-menu-toggle .quick-toggle-menu,
@@ -404,83 +353,85 @@
 .aggregate-menu,
 .nm-menu-item,
 .system-switcher {
-    background: rgba(240, 240, 245, 0.7) !important;
-    border: 1px solid rgba(255, 255, 255, 0.4) !important;
-    border-radius: 16px !important;
+    background: rgba(245, 245, 250, 0.82) !important;
+    border: 1px solid rgba(255, 255, 255, 0.5) !important;
+    border-radius: 18px !important;
     box-shadow: 
-        0 8px 32px rgba(0, 0, 0, 0.12),
-        inset 0 1px 0 rgba(255, 255, 255, 0.5) !important;
-    backdrop-filter: blur(20px) !important;
+        0 10px 40px rgba(0, 0, 0, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.6) !important;
+    backdrop-filter: blur(45px) saturate(180%) !important;
     color: #1a1a1a !important;
-    transition: none !important; /* Instant response */
+    transition-duration: 0ms !important;
+    padding: 10px !important;
 }
 
-.dark-mode .liquid-glass-submenu,
-.dark-mode .quick-toggle-menu,
-.dark-mode .quick-menu-toggle .quick-toggle-menu,
-.liquid-glass-submenu.dark-mode,
-.quick-toggle-menu.dark-mode {
-    background: rgba(15, 15, 20, 0.85) !important;
-    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+.dark-mode-global .liquid-glass-submenu,
+.dark-mode-global .quick-toggle-menu,
+.dark-mode-global .quick-menu-toggle .quick-toggle-menu {
+    background: rgba(8, 8, 12, 0.94) !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
     box-shadow: 
-        0 8px 32px rgba(0, 0, 0, 0.6),
-        inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+        0 10px 40px rgba(0, 0, 0, 0.75),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08) !important;
+    backdrop-filter: blur(50px) saturate(150%) !important;
     color: #f5f5f5 !important;
 }
 
-/* Item di dalam submenu - ultra responsive, zero delay */
+/* Items dalam submenu - instant hover/click */
 .liquid-glass-submenu .popup-menu-item,
 .quick-toggle-menu .popup-menu-item,
 .nm-menu-item .popup-menu-item {
     background: transparent !important;
     color: #1a1a1a !important;
-    border-radius: 10px !important;
-    transition: none !important; /* Instant response */
+    border-radius: 12px !important;
+    transition-duration: 0ms !important;
+    padding: 8px 12px !important;
 }
 
-.dark-mode .liquid-glass-submenu .popup-menu-item,
-.dark-mode .quick-toggle-menu .popup-menu-item,
-.dark-mode .nm-menu-item .popup-menu-item {
+.dark-mode-global .liquid-glass-submenu .popup-menu-item,
+.dark-mode-global .quick-toggle-menu .popup-menu-item,
+.dark-mode-global .nm-menu-item .popup-menu-item {
     color: #f5f5f5 !important;
 }
 
 .liquid-glass-submenu .popup-menu-item:hover,
 .quick-toggle-menu .popup-menu-item:hover,
 .nm-menu-item .popup-menu-item:hover {
-    background: rgba(255, 255, 255, 0.2) !important;
-    border-radius: 10px !important;
-    transition: none !important; /* Instant hover */
+    background: rgba(255, 255, 255, 0.25) !important;
+    border-radius: 12px !important;
+    transition-duration: 0ms !important;
 }
 
-.dark-mode .liquid-glass-submenu .popup-menu-item:hover,
-.dark-mode .quick-toggle-menu .popup-menu-item:hover {
-    background: rgba(255, 255, 255, 0.12) !important;
+.dark-mode-global .liquid-glass-submenu .popup-menu-item:hover,
+.dark-mode-global .quick-toggle-menu .popup-menu-item:hover {
+    background: rgba(255, 255, 255, 0.15) !important;
 }
 
 .liquid-glass-submenu .popup-menu-item:active,
 .quick-toggle-menu .popup-menu-item:active {
-    background: rgba(255, 255, 255, 0.25) !important;
-    transition: none !important; /* Instant click */
+    background: rgba(255, 255, 255, 0.3) !important;
+    transition-duration: 0ms !important;
 }
 
-.dark-mode .liquid-glass-submenu .popup-menu-item:active,
-.dark-mode .quick-toggle-menu .popup-menu-item:active {
-    background: rgba(255, 255, 255, 0.15) !important;
+.dark-mode-global .liquid-glass-submenu .popup-menu-item:active,
+.dark-mode-global .quick-toggle-menu .popup-menu-item:active {
+    background: rgba(255, 255, 255, 0.18) !important;
 }
 
-/* Header submenu (judul Wi-Fi, Bluetooth) */
+/* Header submenu */
 .liquid-glass-submenu .popup-menu-item:first-child,
 .quick-toggle-menu .popup-menu-item:first-child {
-    background: rgba(255, 255, 255, 0.15) !important;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
-    border-radius: 16px 16px 0 0 !important;
+    background: rgba(255, 255, 255, 0.18) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.25) !important;
+    border-radius: 18px 18px 0 0 !important;
     font-weight: bold !important;
     color: #1a1a1a !important;
+    margin-bottom: 8px !important;
 }
 
-.dark-mode .liquid-glass-submenu .popup-menu-item:first-child,
-.dark-mode .quick-toggle-menu .popup-menu-item:first-child {
-    background: rgba(255, 255, 255, 0.1) !important;
+.dark-mode-global .liquid-glass-submenu .popup-menu-item:first-child,
+.dark-mode-global .quick-toggle-menu .popup-menu-item:first-child {
+    background: rgba(255, 255, 255, 0.12) !important;
     color: #f5f5f5 !important;
 }
 
@@ -488,75 +439,59 @@
 .liquid-glass-submenu .popup-separator-menu-item,
 .quick-toggle-menu .popup-separator-menu-item {
     background-color: rgba(0, 0, 0, 0.15) !important;
-    margin: 8px 12px !important;
+    margin: 10px 14px !important;
+    height: 1px !important;
 }
 
-.dark-mode .liquid-glass-submenu .popup-separator-menu-item,
-.dark-mode .quick-toggle-menu .popup-separator-menu-item {
+.dark-mode-global .liquid-glass-submenu .popup-separator-menu-item,
+.dark-mode-global .quick-toggle-menu .popup-separator-menu-item {
     background-color: rgba(255, 255, 255, 0.15) !important;
 }
 
-/* ============================================================
-   ANIMASI LIQUID DROP — Removed for Max Performance
-   ============================================================ */
-
-/* Ripple container - DISABLED for better performance */
-.quick-toggle::after,
-.button::after,
-.popup-menu-item::after {
-    content: none;
+/* === SLIDER (Volume & Brightness) — macOS Bokeh === */
+.quick-slider .slider-bin {
+    background: rgba(245, 245, 250, 0.8) !important;
+    border-radius: 14px !important;
+    border: 1px solid rgba(255, 255, 255, 0.5) !important;
+    box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.12) !important;
+    backdrop-filter: blur(40px) saturate(180%);
+    transition-duration: 0ms;
 }
 
-/* Efek "squish" saat ditekan - removed for instant response */
+.dark-mode-global .quick-slider .slider-bin {
+    background: rgba(8, 8, 12, 0.92) !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.7) !important;
+    backdrop-filter: blur(50px) saturate(150%);
+}
+
+.quick-slider .slider-bin:hover {
+    background: rgba(245, 245, 250, 0.88) !important;
+    transition-duration: 0ms;
+}
+
+.dark-mode-global .quick-slider .slider-bin:hover {
+    background: rgba(8, 8, 12, 0.96) !important;
+}
+
+/* === ACTIVE/PRESSED STATES — Scale Effect, Instant === */
 .quick-toggle:active,
 .button:active,
 .popup-menu-item:active {
-    transform: scale(0.98) !important;
-    transition: none !important; /* Instant click */
+    transform: scale(0.96) !important;
+    transition-duration: 0ms !important;
 }
 
 .quick-toggle,
 .button,
 .popup-menu-item {
     transform: scale(1) !important;
-    transition: none !important; /* Instant response */
+    transition-duration: 0ms !important;
 }
 
-/* ============================================================
-   SLIDER (Volume & Brightness) — Fixed Light/Dark Mode, Zero Delay
-   ============================================================ */
-
-.quick-slider .slider-bin {
-    background: rgba(240, 240, 245, 0.7) !important;
-    border-radius: 12px !important;
-    border: 1px solid rgba(255, 255, 255, 0.4) !important;
-    box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.12) !important;
-    backdrop-filter: blur(20px);
-    transition: none; /* Instant response */
-}
-
-.dark-mode .quick-slider .slider-bin,
-.quick-slider .slider-bin.dark-mode {
-    background: rgba(15, 15, 20, 0.85) !important;
-    border: 1px solid rgba(255, 255, 255, 0.15) !important;
-    box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.6) !important;
-}
-
-.quick-slider .slider-bin:hover {
-    background: rgba(240, 240, 245, 0.8) !important;
-    transition: none; /* Instant hover */
-}
-
-.dark-mode .quick-slider .slider-bin:hover {
-    background: rgba(15, 15, 20, 0.9) !important;
-}
-
-/* ============================================================
-   GLOBAL ANIMATIONS & RESPONSIVE FIXES — Zero Delay, Ultra-Responsive
-   ============================================================ */
-
+/* === GLOBAL ANIMATIONS & RESPONSIVE — Zero Delay === */
 #overviewGroup {
-    transition: none; /* Instant response */
+    transition-duration: 0ms;
 }
 
 StScrollView.vfade {
@@ -567,17 +502,16 @@ StScrollView.vfade {
     icon-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
-/* === RESPONSIVE & SMOOTH SCROLLING — Optimized for Speed === */
 * {
     box-sizing: border-box;
 }
 
-/* Smooth scrolling untuk semua scrollable areas — instant */
+/* Smooth scrolling — instant */
 StScrollView {
-    transition: none;
+    transition-duration: 0ms;
 }
 
-/* Fix untuk responsive layout — pastikan elemen tidak overflow */
+/* Fix responsive layout */
 #panel,
 .liquid-glass-panel,
 .liquid-glass-dash,
@@ -587,7 +521,7 @@ StScrollView {
     overflow-x: hidden;
 }
 
-/* Fix untuk text wrapping agar tidak terpotong */
+/* Text wrapping */
 #panel StLabel,
 .popup-menu-item StLabel,
 .quick-toggle .label {
@@ -595,7 +529,7 @@ StScrollView {
     x-align: start;
 }
 
-/* Ensure proper spacing pada different screen sizes */
+/* Responsive for smaller screens */
 @media (max-width: 768px) {
     #panel {
         padding: 0 8px;
@@ -606,22 +540,234 @@ StScrollView {
     }
 }
 
-/* === EXTRA SMOOTH TRANSITIONS — Removed for Max Performance === */
+/* Panel button transitions — removed for instant response */
 .panel-button,
 .system-status-icon,
 .clock-display,
 .date-menu {
-    transition: none; /* Instant response */
+    transition-duration: 0ms;
 }
 
-/* Hover effects yang lebih smooth dan ringan — removed for instant response */
 .panel-button:hover .app-menu,
 .panel-button:hover .clock-display,
 .panel-button:hover .date-menu {
-    transition: none;
+    transition-duration: 0ms;
 }
 
-/* Active state dengan feedback yang jelas dan cepat — instant */
 .panel-button:active {
-    transition-duration: 0s;
+    transition-duration: 0ms;
 }
+
+/* === BOX POINTER (Menu Arrow) — macOS Style === */
+.popup-menu-boxpointer {
+    -arrow-border-radius: 18px !important;
+    -arrow-background-color: rgba(245, 245, 250, 0.82) !important;
+    -arrow-border-color: rgba(255, 255, 255, 0.5) !important;
+    -arrow-border-width: 1px !important;
+    -arrow-base: 24px !important;
+    -arrow-rise: 12px !important;
+    -boxpointer-gap: 6px !important;
+    transition-duration: 0ms !important;
+}
+
+.dark-mode-global .popup-menu-boxpointer {
+    -arrow-background-color: rgba(8, 8, 12, 0.94) !important;
+    -arrow-border-color: rgba(255, 255, 255, 0.12) !important;
+}
+
+/* === MENU OPEN/CLOSE ANIMATION — Instant, No Delay === */
+.popup-menu {
+    transition-duration: 0ms !important;
+    transition-timing-function: linear !important;
+}
+
+/* Ensure submenus open/close instantly without delay */
+.popup-sub-menu {
+    transition-duration: 0ms !important;
+    transition-timing-function: linear !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+/* === SCROLL VIEW IN MENUS — Smooth & Instant === */
+.popup-menu-content StScrollView {
+    -st-vfade-offset: 0px;
+    transition-duration: 0ms;
+}
+
+/* Menu item spacing for better touch targets */
+.popup-menu-item {
+    margin: 2px 0 !important;
+    padding: 10px 14px !important;
+    spacing: 10px !important;
+}
+
+/* Icon styling in menu items */
+.popup-menu-item .menu-icon {
+    icon-size: 18px !important;
+    margin-end: 10px !important;
+}
+
+/* Label styling */
+.popup-menu-item StLabel {
+    font-size: 14px !important;
+    font-weight: 500 !important;
+}
+
+/* === SYSTEM MENU SPECIFIC === */
+.system-menu-action {
+    border-radius: 14px !important;
+    background: rgba(255, 255, 255, 0.15) !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    transition-duration: 0ms !important;
+}
+
+.dark-mode-global .system-menu-action {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+}
+
+.system-menu-action:hover {
+    background: rgba(255, 255, 255, 0.25) !important;
+    transition-duration: 0ms !important;
+}
+
+.dark-mode-global .system-menu-action:hover {
+    background: rgba(255, 255, 255, 0.15) !important;
+}
+
+.system-menu-action:active {
+    transform: scale(0.95) !important;
+    transition-duration: 0ms !important;
+}
+
+/* === QUICK SETTINGS EXPANSION — Instant === */
+.quick-settings .slider {
+    transition-duration: 0ms;
+}
+
+.quick-settings-system-item {
+    transition-duration: 0ms;
+}
+
+/* Network menu items */
+.nm-menu-item {
+    spacing: 10px !important;
+    padding: 8px !important;
+}
+
+.nm-menu-item .icon {
+    icon-size: 18px !important;
+}
+
+.nm-menu-item StLabel {
+    font-size: 13px !important;
+}
+
+/* === CALENDAR / DATE MENU === */
+.calendar-table {
+    background: rgba(245, 245, 250, 0.7) !important;
+    border-radius: 12px !important;
+    transition-duration: 0ms;
+}
+
+.dark-mode-global .calendar-table {
+    background: rgba(8, 8, 12, 0.85) !important;
+}
+
+.calendar-day-heading {
+    background: rgba(255, 255, 255, 0.2) !important;
+    border-radius: 8px !important;
+    color: #1a1a1a !important;
+}
+
+.dark-mode-global .calendar-day-heading {
+    background: rgba(255, 255, 255, 0.1) !important;
+    color: #f5f5f5 !important;
+}
+
+.calendar-day {
+    border-radius: 10px !important;
+    transition-duration: 0ms;
+}
+
+.calendar-day:hover {
+    background: rgba(255, 255, 255, 0.25) !important;
+    transition-duration: 0ms;
+}
+
+.dark-mode-global .calendar-day:hover {
+    background: rgba(255, 255, 255, 0.15) !important;
+}
+
+.calendar-day:active {
+    background: rgba(255, 255, 255, 0.35) !important;
+    transform: scale(0.95);
+    transition-duration: 0ms;
+}
+
+.dark-mode-global .calendar-day:active {
+    background: rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Today highlight */
+.calendar-day.calendar-day-today {
+    background: rgba(220, 50, 50, 0.3) !important;
+    font-weight: bold !important;
+}
+
+.dark-mode-global .calendar-day.calendar-day-today {
+    background: rgba(220, 50, 50, 0.4) !important;
+}
+
+/* === MESSAGE LIST (Notifications Panel) === */
+.message-list {
+    spacing: 10px !important;
+}
+
+.message-list-placeholder {
+    color: rgba(26, 26, 26, 0.6) !important;
+}
+
+.dark-mode-global .message-list-placeholder {
+    color: rgba(245, 245, 245, 0.6) !important;
+}
+
+.message-body {
+    spacing: 8px !important;
+}
+
+.message-title {
+    font-weight: 600 !important;
+    font-size: 14px !important;
+}
+
+.message-content {
+    font-size: 13px !important;
+}
+
+/* === CONTROL SLIDER KNOB === */
+.slider-handle {
+    background: rgba(245, 245, 250, 0.95) !important;
+    border: 2px solid rgba(255, 255, 255, 0.6) !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2) !important;
+    transition-duration: 0ms;
+}
+
+.dark-mode-global .slider-handle {
+    background: rgba(245, 245, 250, 0.9) !important;
+    border: 2px solid rgba(255, 255, 255, 0.4) !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5) !important;
+}
+
+.slider-handle:hover {
+    background: #ffffff !important;
+    transition-duration: 0ms;
+}
+
+.slider-handle:active {
+    transform: scale(1.1);
+    transition-duration: 0ms;
+}
+
+/* === END OF STYLESHEET === */
