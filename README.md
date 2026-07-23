@@ -33,7 +33,26 @@ A premium GNOME Shell extension that transforms your desktop with **macOS-style 
 
 ## 📸 Screenshots
 
-*Add your screenshots showing macOS-style blur and dark mode*
+### Quick Settings Panel
+![Quick Settings](Cuplikan%20Layar%20Dari%202026-07-24%2001-28-36.png)
+
+### System Menu
+![System Menu](Cuplikan%20Layar%20Dari%202026-07-24%2001-28-47.png)
+
+### Notifications Panel
+![Notifications](Cuplikan%20Layar%20Dari%202026-07-24%2001-28-59.png)
+
+### Workspace Overview
+![Workspace](Cuplikan%20Layar%20Dari%202026-07-24%2001-29-22.png)
+
+### Dark Mode Interface
+![Dark Mode](Cuplikan%20Layar%20Dari%202026-07-24%2001-29-30.png)
+
+### Full Desktop Experience
+![Full Desktop](Cuplikan%20Layar%20Dari%202026-07-24%2001-29-39.png)
+
+### Aesthetic Background
+![Background](alexander-slattery-LI748t0BK8w-unsplash.jpg)
 
 ## 🚀 Installation Guide
 
