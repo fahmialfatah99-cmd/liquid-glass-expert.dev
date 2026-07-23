@@ -1,8 +1,9 @@
 {
   "uuid": "liquid-glass@expert.dev",
   "name": "Liquid Glass UI",
-  "description": "Ultra-smooth Liquid Glass aesthetic with dynamic blur and fluid animations.",
-  "version": 1,
+  "description": "Ultra-smooth Liquid Glass aesthetic with dynamic blur, fluid animations, and enhanced visual effects for GNOME Shell.",
+  "version": 2,
   "shell-version": ["45", "46", "47"],
-  "url": "https://github.com/expert/liquid-glass"
+  "url": "https://github.com/expert/liquid-glass",
+  "settings-schema": "org.gnome.shell.extensions.liquid-glass"
 }
