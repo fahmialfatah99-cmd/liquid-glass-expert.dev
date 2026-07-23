@@ -1,0 +1,213 @@
+/* 
+ * LIQUID GLASS UI - ULTRA FAST & MACOS BLUR 
+ * Fixed: Double Border, Missing Blur, Dark Mode, Latency
+ */
+
+/* --- GLOBAL RESET FOR SPEED --- */
+* {
+    transition-duration: 0s !important; /* INSTANT RESPONSE */
+    transition-property: none !important;
+}
+
+/* Force Dark Mode Text Colors Globally */
+.label, .title, .clock, .date, .system-status-icon, 
+.popup-menu-item label, .slider-label, .header-title {
+    color: #ffffff !important;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.8);
+}
+
+/* --- CORE BLUR EFFECT (MACOS STYLE) --- */
+/* This is the magic: Semi-transparent black + Heavy Blur */
+.shell-blur-group, 
+#panel, 
+.popup-menu-content, 
+.quick-settings, 
+.message-list-controls, 
+.calendar, 
+.world-clocks-button, 
+.weather-button,
+.screenshot-ui-area-selector,
+.login-dialog, 
+.unlock-dialog,
+.modal-dialog,
+.switcher-popup,
+.osd-window,
+.overview-controls,
+.workspace-switcher,
+.dash-background {
+    background-color: rgba(15, 15, 15, 0.75) !important; /* Deep Black Base */
+    backdrop-filter: blur(40px) saturate(120%) !important; /* Strong Bokeh */
+    -webkit-backdrop-filter: blur(40px) saturate(120%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important; /* Subtle Glass Edge */
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.6) !important; /* Depth */
+    border-radius: 18px !important;
+    color: #ffffff !important;
+}
+
+/* --- FIX DOUBLE BORDER ISSUE --- */
+/* Ensure container and inner content share the same visual boundary */
+.quick-settings, 
+.popup-menu-content {
+    /* Remove any internal borders that cause doubling */
+    border: none !important; 
+    /* Re-apply the unified glass style directly to the main container */
+    background: rgba(15, 15, 15, 0.75);
+    backdrop-filter: blur(40px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 18px;
+    margin: 10px; /* Spacing from screen edge */
+    padding: 12px;
+}
+
+/* Fix for BoxPointer (The arrow container) to match inner content */
+.popup-menu-boxpointer {
+    -arrow-border-radius: 18px;
+    -arrow-background-color: transparent; /* Let the content show through */
+    -arrow-border-width: 0px;
+    -arrow-border-color: transparent;
+    -arrow-base: 0px;
+    -arrow-rise: 0px;
+    margin: 0px;
+}
+
+/* Ensure the actual popup inside boxpointer has the blur */
+.popup-menu-boxpointer .popup-menu-content {
+    margin: 0;
+    border-radius: 18px;
+    background-color: rgba(15, 15, 15, 0.75) !important;
+    backdrop-filter: blur(40px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+/* --- PANEL SPECIFIC --- */
+#panel {
+    background-color: rgba(10, 10, 10, 0.85) !important; /* Slightly darker for readability */
+    backdrop-filter: blur(50px) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-radius: 0 0 18px 18px; /* Optional: rounded bottom */
+    font-weight: bold;
+    height: 2.5em;
+}
+
+/* --- DASH & DOCK --- */
+#dash, .dash-background {
+    background-color: rgba(20, 20, 20, 0.6) !important;
+    backdrop-filter: blur(45px) !important;
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dash-item-container .app-well-app-running-dot {
+    background-color: #ffffff;
+    border-radius: 10px;
+    height: 4px;
+    width: 4px;
+}
+
+/* --- SLIDERS & TOGGLES (Dark Theme) --- */
+.slider {
+    color: #ffffff !important;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.15) !important;
+    border: none;
+    height: 1.2em;
+}
+
+.slider-handle {
+    background-color: #ffffff !important;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+.toggle-switch {
+    background-image: url("resource:///org/gnome/shell/theme/toggle-off.svg"); /* Fallback */
+    background-size: contain;
+}
+/* Force White Toggle in Dark Mode if possible via CSS filters */
+.toggle-switch:checked {
+    background-color: #3584e4; /* Accent */
+}
+.toggle-switch StIcon {
+    color: white !important;
+}
+
+/* --- BUTTONS & ICONS --- */
+.icon-button, .message-list-clear-button, .calendar-nav-button {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    color: white !important;
+}
+.icon-button:hover, .message-list-clear-button:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* --- NOTIFICATIONS --- */
+.notification-banner {
+    background-color: rgba(30, 30, 30, 0.9) !important;
+    backdrop-filter: blur(30px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    color: white !important;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+}
+
+/* --- SCROLLBARS (Minimalist) --- */
+StScrollView StScrollBar {
+    padding: 0;
+}
+StScrollView StScrollBar StBin#trough {
+    background-color: transparent;
+    border-radius: 0;
+}
+StScrollView StScrollBar StButton#vhandle,
+StScrollView StScrollBar StButton#hhandle {
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 6px;
+    margin: 2px;
+}
+StScrollView StScrollBar StButton#vhandle:hover,
+StScrollView StScrollBar StButton#hhandle:hover {
+    background-color: rgba(255, 255, 255, 0.6);
+}
+
+/* --- OVERVIEW SEARCH --- */
+.search-entry, .search-entry:focus {
+    background-color: rgba(0, 0, 0, 0.5) !important;
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    color: white !important;
+    selection-background-color: rgba(255, 255, 255, 0.3);
+}
+.search-entry StIcon {
+    color: white !important;
+}
+
+/* --- FIX SUBMENU LAG VISUALLY --- */
+/* Ensure submenus inherit the blur immediately without fade-in delay */
+.popup-sub-menu {
+    background-color: rgba(0, 0, 0, 0.3); /* Slightly lighter black for depth */
+    border-radius: 12px;
+    border: none;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
+    padding: 6px;
+    margin: 4px;
+}
+
+/* --- LOCK SCREEN --- */
+.lock-screen-group, .login-dialog {
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(60px);
+}
+.login-dialog-prompt-layout {
+    background-color: rgba(20, 20, 20, 0.8);
+    backdrop-filter: blur(40px);
+    border-radius: 16px;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+/* --- UTILITY CLASSES --- */
+.no-transition {
+    transition: none !important;
+}
