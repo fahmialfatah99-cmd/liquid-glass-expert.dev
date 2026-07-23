@@ -1,16 +1,26 @@
 /* ============================================================
-   LIQUID GLASS UI v3 — Fixed Top Bar Text, Responsive, Smooth
+   LIQUID GLASS UI v4 — Adaptive Blur, Ultra-Smooth Animations
    ============================================================ */
 
-/* === TOP BAR / PANEL — FIX TEXT WARNA PUTIH === */
+/* === TOP BAR / PANEL — ADAPTIVE BLUR & WHITE TEXT === */
 #panel {
-    background: rgba(20, 20, 30, 0.6) !important;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
+    background: rgba(255, 255, 255, 0.15) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3) !important;
     box-shadow: 
-        0 4px 20px rgba(0, 0, 0, 0.3), 
-        inset 0 1px 0 rgba(255, 255, 255, 0.25) !important;
-    backdrop-filter: blur(16px);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        0 4px 20px rgba(0, 0, 0, 0.15), 
+        inset 0 1px 0 rgba(255, 255, 255, 0.4) !important;
+    backdrop-filter: blur(20px);
+    transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Dark mode support - darker transparent background */
+.dark-mode #panel,
+#panel.dark-mode {
+    background: rgba(20, 20, 30, 0.65) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15) !important;
+    box-shadow: 
+        0 4px 20px rgba(0, 0, 0, 0.4), 
+        inset 0 1px 0 rgba(255, 255, 255, 0.15) !important;
 }
 
 #panel .panel-button,
@@ -21,20 +31,21 @@
 #panel .date-menu,
 #panel .system-status-icon {
     color: #ffffff !important;
-    icon-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+    icon-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    transition: all 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 #panel .panel-button:hover {
-    background: rgba(255, 255, 255, 0.1) !important;
+    background: rgba(255, 255, 255, 0.12) !important;
     border-radius: 8px;
-    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 #panel .panel-button:active {
-    background: rgba(255, 255, 255, 0.15) !important;
-    transform: scale(0.98);
-    transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+    background: rgba(255, 255, 255, 0.18) !important;
+    transform: scale(0.97);
+    transition: all 0.1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 #panel .clock-display StLabel,
@@ -42,7 +53,7 @@
 #panel .system-status-label {
     color: #ffffff !important;
     font-weight: 500;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
 }
 
 /* Fix untuk menu dropdown di panel */
@@ -58,139 +69,240 @@
     background: rgba(255, 255, 255, 0.12) !important;
 }
 
-/* === LIQUID GLASS PANEL === */
+/* === LIQUID GLASS PANEL — ADAPTIVE BLUR === */
 .liquid-glass-panel {
-    background: rgba(20, 20, 30, 0.55) !important;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
+    background: rgba(255, 255, 255, 0.12) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.25) !important;
     box-shadow: 
-        0 4px 20px rgba(0, 0, 0, 0.3), 
-        inset 0 1px 0 rgba(255, 255, 255, 0.25) !important;
-    backdrop-filter: blur(16px);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        0 4px 20px rgba(0, 0, 0, 0.12), 
+        inset 0 1px 0 rgba(255, 255, 255, 0.35) !important;
+    backdrop-filter: blur(20px);
+    transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.dark-mode .liquid-glass-panel,
+.liquid-glass-panel.dark-mode {
+    background: rgba(20, 20, 30, 0.55) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15) !important;
+    box-shadow: 
+        0 4px 20px rgba(0, 0, 0, 0.35), 
+        inset 0 1px 0 rgba(255, 255, 255, 0.15) !important;
 }
 
 .liquid-glass-panel:hover {
-    background: rgba(20, 20, 30, 0.65) !important;
+    background: rgba(255, 255, 255, 0.18) !important;
     box-shadow: 
-        0 8px 28px rgba(0, 0, 0, 0.35), 
-        inset 0 1px 0 rgba(255, 255, 255, 0.3) !important;
+        0 8px 28px rgba(0, 0, 0, 0.15), 
+        inset 0 1px 0 rgba(255, 255, 255, 0.4) !important;
+    transition: all 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-/* === LIQUID GLASS DASH & OVERVIEW === */
+.dark-mode .liquid-glass-panel:hover {
+    background: rgba(20, 20, 30, 0.65) !important;
+}
+
+/* === LIQUID GLASS DASH & OVERVIEW — ADAPTIVE BLUR === */
 .liquid-glass-dash,
 .liquid-glass-dash-bg {
-    background: rgba(20, 20, 30, 0.5) !important;
-    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    background: rgba(255, 255, 255, 0.1) !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
     border-radius: 18px !important;
     box-shadow: 
-        0 10px 40px rgba(0, 0, 0, 0.3), 
-        inset 0 1px 0 rgba(255, 255, 255, 0.25) !important;
-    backdrop-filter: blur(16px);
-    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        0 10px 40px rgba(0, 0, 0, 0.15), 
+        inset 0 1px 0 rgba(255, 255, 255, 0.35) !important;
+    backdrop-filter: blur(20px);
+    transition: all 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.dark-mode .liquid-glass-dash,
+.dark-mode .liquid-glass-dash-bg,
+.liquid-glass-dash.dark-mode,
+.liquid-glass-dash-bg.dark-mode {
+    background: rgba(20, 20, 30, 0.5) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    box-shadow: 
+        0 10px 40px rgba(0, 0, 0, 0.4), 
+        inset 0 1px 0 rgba(255, 255, 255, 0.15) !important;
 }
 
 .liquid-glass-dash:hover,
 .liquid-glass-dash-bg:hover {
-    background: rgba(20, 20, 30, 0.6) !important;
+    background: rgba(255, 255, 255, 0.16) !important;
     box-shadow: 
-        0 14px 48px rgba(0, 0, 0, 0.35), 
-        inset 0 1px 0 rgba(255, 255, 255, 0.3) !important;
+        0 14px 48px rgba(0, 0, 0, 0.18), 
+        inset 0 1px 0 rgba(255, 255, 255, 0.4) !important;
+    transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-/* === SEARCH ENTRY === */
-.search-entry {
+.dark-mode .liquid-glass-dash:hover,
+.dark-mode .liquid-glass-dash-bg:hover {
     background: rgba(20, 20, 30, 0.6) !important;
-    border: 1px solid rgba(255, 255, 255, 0.25) !important;
+}
+
+/* === SEARCH ENTRY — ADAPTIVE BLUR === */
+.search-entry {
+    background: rgba(255, 255, 255, 0.15) !important;
+    border: 1px solid rgba(255, 255, 255, 0.35) !important;
     border-radius: 14px !important;
     box-shadow: 
-        0 8px 32px rgba(0, 0, 0, 0.25), 
-        inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
-    backdrop-filter: blur(12px);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        0 8px 32px rgba(0, 0, 0, 0.12), 
+        inset 0 1px 0 rgba(255, 255, 255, 0.3) !important;
+    backdrop-filter: blur(20px);
+    transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     color: #ffffff !important;
 }
 
-.search-entry:focus {
-    background: rgba(20, 20, 30, 0.7) !important;
-    border-color: rgba(255, 255, 255, 0.4) !important;
+.dark-mode .search-entry,
+.search-entry.dark-mode {
+    background: rgba(20, 20, 30, 0.6) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
     box-shadow: 
-        0 10px 40px rgba(0, 0, 0, 0.3), 
-        inset 0 1px 0 rgba(255, 255, 255, 0.3) !important;
+        0 8px 32px rgba(0, 0, 0, 0.35), 
+        inset 0 1px 0 rgba(255, 255, 255, 0.15) !important;
 }
 
-/* === OVERVIEW CONTROLS === */
+.search-entry:focus {
+    background: rgba(255, 255, 255, 0.2) !important;
+    border-color: rgba(255, 255, 255, 0.5) !important;
+    box-shadow: 
+        0 10px 40px rgba(0, 0, 0, 0.15), 
+        inset 0 1px 0 rgba(255, 255, 255, 0.4) !important;
+    transition: all 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.dark-mode .search-entry:focus,
+.search-entry.dark-mode:focus {
+    background: rgba(20, 20, 30, 0.7) !important;
+}
+
+/* === OVERVIEW CONTROLS — ADAPTIVE BLUR === */
 .overview-controls {
-    background: rgba(20, 20, 30, 0.5) !important;
-    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    background: rgba(255, 255, 255, 0.12) !important;
+    border: 1px solid rgba(255, 255, 255, 0.25) !important;
     border-radius: 16px !important;
     box-shadow: 
-        0 8px 32px rgba(0, 0, 0, 0.25), 
-        inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
-    backdrop-filter: blur(12px);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        0 8px 32px rgba(0, 0, 0, 0.12), 
+        inset 0 1px 0 rgba(255, 255, 255, 0.3) !important;
+    backdrop-filter: blur(20px);
+    transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-/* === APP ICONS HOVER === */
+.dark-mode .overview-controls,
+.overview-controls.dark-mode {
+    background: rgba(20, 20, 30, 0.5) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.35), 
+        inset 0 1px 0 rgba(255, 255, 255, 0.15) !important;
+}
+
+/* === APP ICONS HOVER — SMOOTH TRANSITIONS === */
 .app-well-app:hover .overview-icon,
 .grid-search-result:hover .overview-icon {
     background: rgba(255, 255, 255, 0.15) !important;
     border-radius: 12px !important;
     box-shadow: 
-        0 6px 24px rgba(0, 0, 0, 0.2), 
-        inset 0 1px 0 rgba(255, 255, 255, 0.25) !important;
-    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        0 6px 24px rgba(0, 0, 0, 0.12), 
+        inset 0 1px 0 rgba(255, 255, 255, 0.3) !important;
+    transition: all 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-/* === NOTIFICATIONS === */
+.dark-mode .app-well-app:hover .overview-icon,
+.dark-mode .grid-search-result:hover .overview-icon {
+    background: rgba(255, 255, 255, 0.12) !important;
+}
+
+/* === NOTIFICATIONS — ADAPTIVE BLUR === */
 .notification,
 .message-list-section {
-    background: rgba(20, 20, 30, 0.65) !important;
-    border: 1px solid rgba(255, 255, 255, 0.25) !important;
+    background: rgba(255, 255, 255, 0.15) !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
     border-radius: 14px !important;
-    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.35) !important;
-    backdrop-filter: blur(12px);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.15) !important;
+    backdrop-filter: blur(20px);
+    transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     color: #ffffff !important;
+}
+
+.dark-mode .notification,
+.dark-mode .message-list-section,
+.notification.dark-mode,
+.message-list-section.dark-mode {
+    background: rgba(20, 20, 30, 0.65) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.4) !important;
 }
 
 .notification:hover {
+    background: rgba(255, 255, 255, 0.2) !important;
+    box-shadow: 0 14px 42px rgba(0, 0, 0, 0.18) !important;
+    transition: all 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.dark-mode .notification:hover {
     background: rgba(20, 20, 30, 0.75) !important;
-    box-shadow: 0 14px 42px rgba(0, 0, 0, 0.4) !important;
+    box-shadow: 0 14px 42px rgba(0, 0, 0, 0.45) !important;
 }
 
-/* === POPUP MENUS === */
+/* === POPUP MENUS — ADAPTIVE BLUR === */
 .popup-menu-content {
-    background: rgba(20, 20, 30, 0.65) !important;
-    border: 1px solid rgba(255, 255, 255, 0.25) !important;
+    background: rgba(255, 255, 255, 0.15) !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
     border-radius: 14px !important;
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35) !important;
-    backdrop-filter: blur(16px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15) !important;
+    backdrop-filter: blur(20px);
     color: #ffffff !important;
+    transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-/* === WORKSPACE SWITCHER === */
+.dark-mode .popup-menu-content,
+.popup-menu-content.dark-mode {
+    background: rgba(20, 20, 30, 0.65) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4) !important;
+}
+
+/* === WORKSPACE SWITCHER — ADAPTIVE BLUR === */
 .workspace-switcher-group .workspace-switcher {
-    background: rgba(20, 20, 30, 0.55) !important;
-    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    background: rgba(255, 255, 255, 0.12) !important;
+    border: 1px solid rgba(255, 255, 255, 0.25) !important;
     border-radius: 12px !important;
-    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.3) !important;
-    backdrop-filter: blur(12px);
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.15) !important;
+    backdrop-filter: blur(20px);
+    transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.dark-mode .workspace-switcher-group .workspace-switcher,
+.workspace-switcher-group .workspace-switcher.dark-mode {
+    background: rgba(20, 20, 30, 0.55) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.35) !important;
 }
 
 /* ============================================================
-   FIX: QUICK TOGGLE — Semua state konsisten
+   FIX: QUICK TOGGLE — Adaptive Blur & Ultra-Smooth
    ============================================================ */
 
 .quick-toggle,
 .quick-menu-toggle .quick-toggle {
     border-radius: 16px !important;
-    background: rgba(20, 20, 30, 0.55) !important;
-    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    background: rgba(255, 255, 255, 0.12) !important;
+    border: 1px solid rgba(255, 255, 255, 0.25) !important;
     box-shadow: 
-        0 4px 16px rgba(0, 0, 0, 0.25),
-        inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+        0 4px 16px rgba(0, 0, 0, 0.12),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3) !important;
+    transition: all 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
     color: #ffffff !important;
+}
+
+.dark-mode .quick-toggle,
+.dark-mode .quick-menu-toggle .quick-toggle,
+.quick-toggle.dark-mode {
+    background: rgba(20, 20, 30, 0.55) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    box-shadow: 
+        0 4px 16px rgba(0, 0, 0, 0.35),
+        inset 0 1px 0 rgba(255, 255, 255, 0.15) !important;
 }
 
 .quick-toggle:checked,
@@ -200,10 +312,16 @@
     box-shadow: 
         0 4px 20px rgba(220, 50, 50, 0.4),
         inset 0 1px 0 rgba(255, 255, 255, 0.3) !important;
+    transition: all 0.1s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
 }
 
 .quick-toggle:hover {
     border-radius: 16px !important;
+    background: rgba(255, 255, 255, 0.18) !important;
+    transition: all 0.12s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+}
+
+.dark-mode .quick-toggle:hover {
     background: rgba(20, 20, 30, 0.65) !important;
 }
 
@@ -217,7 +335,7 @@
 }
 
 /* ============================================================
-   FIX: SUBMENU / DROPDOWN PANEL (Wi-Fi, Bluetooth, dll)
+   FIX: SUBMENU / DROPDOWN PANEL — Adaptive Blur & Smooth
    ============================================================ */
 
 .liquid-glass-submenu,
@@ -227,15 +345,27 @@
 .aggregate-menu,
 .nm-menu-item,
 .system-switcher {
-    background: rgba(20, 20, 30, 0.7) !important;
-    border: 1px solid rgba(255, 255, 255, 0.25) !important;
+    background: rgba(255, 255, 255, 0.15) !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
     border-radius: 16px !important;
     box-shadow: 
-        0 12px 48px rgba(0, 0, 0, 0.4),
-        inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+        0 12px 48px rgba(0, 0, 0, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3) !important;
     backdrop-filter: blur(20px) !important;
     color: #ffffff !important;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+}
+
+.dark-mode .liquid-glass-submenu,
+.dark-mode .quick-toggle-menu,
+.dark-mode .quick-menu-toggle .quick-toggle-menu,
+.liquid-glass-submenu.dark-mode,
+.quick-toggle-menu.dark-mode {
+    background: rgba(20, 20, 30, 0.7) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    box-shadow: 
+        0 12px 48px rgba(0, 0, 0, 0.45),
+        inset 0 1px 0 rgba(255, 255, 255, 0.15) !important;
 }
 
 /* Item di dalam submenu */
@@ -245,7 +375,7 @@
     background: transparent !important;
     color: #ffffff !important;
     border-radius: 10px !important;
-    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    transition: all 0.12s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
 }
 
 .liquid-glass-submenu .popup-menu-item:hover,
@@ -253,11 +383,18 @@
 .nm-menu-item .popup-menu-item:hover {
     background: rgba(255, 255, 255, 0.12) !important;
     border-radius: 10px !important;
+    transition: all 0.1s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+}
+
+.dark-mode .liquid-glass-submenu .popup-menu-item:hover,
+.dark-mode .quick-toggle-menu .popup-menu-item:hover {
+    background: rgba(255, 255, 255, 0.1) !important;
 }
 
 .liquid-glass-submenu .popup-menu-item:active,
 .quick-toggle-menu .popup-menu-item:active {
     background: rgba(255, 255, 255, 0.18) !important;
+    transition: all 0.08s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
 }
 
 /* Header submenu (judul Wi-Fi, Bluetooth) */
@@ -277,11 +414,16 @@
     margin: 8px 12px !important;
 }
 
+.dark-mode .liquid-glass-submenu .popup-separator-menu-item,
+.dark-mode .quick-toggle-menu .popup-separator-menu-item {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
 /* ============================================================
-   ANIMASI LIQUID DROP — Efek tetesan air saat diklik
+   ANIMASI LIQUID DROP — Ultra-Smooth, No Performance Hit
    ============================================================ */
 
-/* Ripple container */
+/* Ripple container - simplified for better performance */
 .quick-toggle::after,
 .button::after,
 .popup-menu-item::after {
@@ -294,8 +436,8 @@
     border-radius: 50%;
     background: radial-gradient(
         circle,
-        rgba(255, 255, 255, 0.4) 0%,
-        rgba(255, 255, 255, 0.1) 50%,
+        rgba(255, 255, 255, 0.3) 0%,
+        rgba(255, 255, 255, 0.08) 50%,
         transparent 70%
     );
     transform: translate(-50%, -50%);
@@ -304,86 +446,83 @@
     transition: none;
 }
 
-/* Saat diklik — expand seperti riak air */
+/* Saat diklik — expand seperti riak air (optimized) */
 .quick-toggle:active::after,
 .button:active::after,
 .popup-menu-item:active::after {
-    width: 200px;
-    height: 200px;
+    width: 180px;
+    height: 180px;
     opacity: 1;
     transition: 
-        width 0.6s cubic-bezier(0.4, 0, 0.2, 1),
-        height 0.6s cubic-bezier(0.4, 0, 0.2, 1),
-        opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        width 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+        height 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+        opacity 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-/* Efek "squish" saat ditekan — seperti menekan permukaan air */
+/* Efek "squish" saat ditekan — lightweight */
 .quick-toggle:active,
 .button:active,
 .popup-menu-item:active {
-    transform: scale(0.96) !important;
-    transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    transform: scale(0.97) !important;
+    transition: transform 0.1s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
 }
 
 .quick-toggle,
 .button,
 .popup-menu-item {
     transform: scale(1) !important;
-    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    transition: transform 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
 }
 
-/* Efek "bounce" saat release — seperti air yang kembali */
-@keyframes liquidBounce {
-    0% {
-        transform: scale(0.96);
-    }
-    50% {
-        transform: scale(1.02);
-    }
-    100% {
-        transform: scale(1);
-    }
-}
-
-.quick-toggle:not(:active),
-.button:not(:active),
-.popup-menu-item:not(:active) {
-    animation: liquidBounce 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
+/* Remove heavy bounce animation for better performance */
+/* Efek "bounce" saat release — disabled for smoothness */
 
 /* Ripple effect untuk toggle yang checked */
 .quick-toggle:checked:active::after {
     background: radial-gradient(
         circle,
-        rgba(255, 255, 255, 0.6) 0%,
-        rgba(255, 255, 255, 0.2) 50%,
+        rgba(255, 255, 255, 0.5) 0%,
+        rgba(255, 255, 255, 0.15) 50%,
         transparent 70%
     );
 }
 
 /* ============================================================
-   SLIDER (Volume & Brightness)
+   SLIDER (Volume & Brightness) — Adaptive Blur
    ============================================================ */
 
 .quick-slider .slider-bin {
-    background: rgba(20, 20, 30, 0.5) !important;
+    background: rgba(255, 255, 255, 0.12) !important;
     border-radius: 12px !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.15) !important;
+    backdrop-filter: blur(20px);
+    transition: all 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.dark-mode .quick-slider .slider-bin,
+.quick-slider .slider-bin.dark-mode {
+    background: rgba(20, 20, 30, 0.5) !important;
     border: 1px solid rgba(255, 255, 255, 0.15) !important;
-    box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.3) !important;
-    backdrop-filter: blur(8px);
+    box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.35) !important;
 }
 
 .quick-slider .slider-bin:hover {
+    background: rgba(255, 255, 255, 0.18) !important;
+    transition: all 0.12s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.dark-mode .quick-slider .slider-bin:hover {
     background: rgba(20, 20, 30, 0.6) !important;
 }
 
 /* ============================================================
-   GLOBAL ANIMATIONS & RESPONSIVE FIXES
+   GLOBAL ANIMATIONS & RESPONSIVE FIXES — Ultra-Smooth
    ============================================================ */
 
 #overviewGroup {
-    transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
-                background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: opacity 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+                background-color 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 StScrollView.vfade {
@@ -391,7 +530,7 @@ StScrollView.vfade {
 }
 
 .system-status-icon {
-    icon-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+    icon-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 /* === RESPONSIVE & SMOOTH SCROLLING === */
@@ -399,9 +538,9 @@ StScrollView.vfade {
     box-sizing: border-box;
 }
 
-/* Smooth scrolling untuk semua scrollable areas */
+/* Smooth scrolling untuk semua scrollable areas — optimized */
 StScrollView {
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 /* Fix untuk responsive layout — pastikan elemen tidak overflow */
@@ -433,24 +572,24 @@ StScrollView {
     }
 }
 
-/* === EXTRA SMOOTH TRANSITIONS === */
+/* === EXTRA SMOOTH TRANSITIONS — Optimized for Performance === */
 .panel-button,
 .system-status-icon,
 .clock-display,
 .date-menu {
     transition-property: background-color, border, box-shadow, transform;
-    transition-duration: 0.25s;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 0.15s;
+    transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-/* Hover effects yang lebih smooth */
+/* Hover effects yang lebih smooth dan ringan */
 .panel-button:hover .app-menu,
 .panel-button:hover .clock-display,
 .panel-button:hover .date-menu {
-    transition: all 0.2s ease-out;
+    transition: all 0.12s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-/* Active state dengan feedback yang jelas */
+/* Active state dengan feedback yang jelas dan cepat */
 .panel-button:active {
-    transition-duration: 0.1s;
+    transition-duration: 0.08s;
 }
