@@ -1,53 +1,137 @@
 /* === LIQUID GLASS PANEL === */
 .liquid-glass-panel {
-    background: rgba(255, 255, 255, 0.05) !important;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.15) !important;
+    background: rgba(255, 255, 255, 0.06) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.18) !important;
     box-shadow: 
-        0 4px 16px rgba(0, 0, 0, 0.1), 
-        inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+        0 4px 20px rgba(0, 0, 0, 0.12), 
+        inset 0 1px 0 rgba(255, 255, 255, 0.25) !important;
+    backdrop-filter: blur(10px);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .liquid-glass-panel:hover {
-    background: rgba(255, 255, 255, 0.08) !important;
+    background: rgba(255, 255, 255, 0.1) !important;
     box-shadow: 
-        0 8px 24px rgba(0, 0, 0, 0.15), 
-        inset 0 1px 0 rgba(255, 255, 255, 0.3) !important;
+        0 8px 28px rgba(0, 0, 0, 0.18), 
+        inset 0 1px 0 rgba(255, 255, 255, 0.35) !important;
 }
 
 /* === LIQUID GLASS DASH & OVERVIEW === */
-.liquid-glass-dash .dash-background,
-.overview-controls,
-.app-well-app:hover .overview-icon,
+.liquid-glass-dash,
+.liquid-glass-dash-bg {
+    background: rgba(255, 255, 255, 0.08) !important;
+    border: 1px solid rgba(255, 255, 255, 0.18) !important;
+    border-radius: 18px !important;
+    box-shadow: 
+        0 10px 40px rgba(0, 0, 0, 0.18), 
+        inset 0 1px 0 rgba(255, 255, 255, 0.25) !important;
+    backdrop-filter: blur(12px);
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.liquid-glass-dash:hover,
+.liquid-glass-dash-bg:hover {
+    background: rgba(255, 255, 255, 0.14) !important;
+    box-shadow: 
+        0 14px 48px rgba(0, 0, 0, 0.22), 
+        inset 0 1px 0 rgba(255, 255, 255, 0.35) !important;
+}
+
+/* === SEARCH ENTRY === */
+.liquid-glass-search,
 .search-entry {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    border-radius: 14px !important;
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.15), 
+        inset 0 1px 0 rgba(255, 255, 255, 0.25) !important;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    color: #ffffff !important;
+}
+
+.liquid-glass-search:focus,
+.search-entry:focus {
+    background: rgba(255, 255, 255, 0.15) !important;
+    border-color: rgba(255, 255, 255, 0.35) !important;
+    box-shadow: 
+        0 10px 40px rgba(0, 0, 0, 0.2), 
+        inset 0 1px 0 rgba(255, 255, 255, 0.35) !important;
+}
+
+/* === OVERVIEW CONTROLS === */
+.liquid-glass-overview-controls,
+.overview-controls {
     background: rgba(255, 255, 255, 0.08) !important;
     border: 1px solid rgba(255, 255, 255, 0.15) !important;
     border-radius: 16px !important;
     box-shadow: 
         0 8px 32px rgba(0, 0, 0, 0.15), 
         inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
-    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.liquid-glass-dash .dash-background:hover {
-    background: rgba(255, 255, 255, 0.12) !important;
+/* === APP ICONS HOVER EFFECT === */
+.app-well-app:hover .overview-icon,
+.grid-search-result:hover .overview-icon {
+    background: rgba(255, 255, 255, 0.15) !important;
+    border-radius: 12px !important;
     box-shadow: 
-        0 12px 40px rgba(0, 0, 0, 0.2), 
-        inset 0 1px 0 rgba(255, 255, 255, 0.3) !important;
+        0 6px 24px rgba(0, 0, 0, 0.15), 
+        inset 0 1px 0 rgba(255, 255, 255, 0.25) !important;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* === NOTIFICATIONS === */
 .notification,
 .message-list-section {
-    background: rgba(255, 255, 255, 0.1) !important;
-    border: 1px solid rgba(255, 255, 255, 0.2) !important;
-    border-radius: 12px !important;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2) !important;
+    background: rgba(255, 255, 255, 0.12) !important;
+    border: 1px solid rgba(255, 255, 255, 0.22) !important;
+    border-radius: 14px !important;
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.22) !important;
+    backdrop-filter: blur(8px);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.notification:hover {
+    background: rgba(255, 255, 255, 0.16) !important;
+    box-shadow: 0 14px 42px rgba(0, 0, 0, 0.26) !important;
+}
+
+/* === POPUP MENUS === */
+.popup-menu-content {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border: 1px solid rgba(255, 255, 255, 0.18) !important;
+    border-radius: 14px !important;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2) !important;
+    backdrop-filter: blur(12px);
 }
 
 /* === GLOBAL ANIMATIONS (Overview Toggling) === */
 #overviewGroup {
     transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
                 background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* === SCROLLBAR STYLING === */
+StScrollView.vfade {
+    -st-vfade-offset: 0px;
+}
+
+/* === BUTTON HOVER EFFECTS === */
+.button:hover {
+    background: rgba(255, 255, 255, 0.15) !important;
+    border-radius: 8px !important;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* === WORKSPACE SWITCHER === */
+.workspace-switcher-group .workspace-switcher {
+    background: rgba(255, 255, 255, 0.08) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    border-radius: 12px !important;
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.15) !important;
+    backdrop-filter: blur(8px);
 }
