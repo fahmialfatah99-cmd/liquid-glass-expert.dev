@@ -2,17 +2,18 @@
 
 A premium GNOME Shell extension that transforms your desktop with **macOS-style bokeh blur effects**, ultra-smooth animations, and intelligent dark mode. Experience zero-delay interactions with powerful backdrop filters and pixel-perfect glassmorphism.
 
-![Version](https://img.shields.io/badge/version-3.0-blue)
-![GNOME](https://img.shields.io/badge/GNOME-45%2B-purple)
+![Version](https://img.shields.io/badge/version-4.0-blue)
+![GNOME](https://img.shields.io/badge/GNOME-45%7C46%7C47%7C48-purple)
 ![License](https://img.shields.io/badge/license-GPL--3.0-green)
 
 ## ✨ Features
 
 ### 🎨 Visual Excellence
-- **macOS-Style Bokeh Blur**: Strong 40-50px backdrop blur with rich color saturation (120%)
-- **Intelligent Dark Mode**: Automatic system theme detection with pure black backgrounds and white text
-- **Premium Glassmorphism**: Deep semi-transparent blacks with elegant bokeh effect
+- **macOS-Style Bokeh Blur**: Customizable blur strength (default 40px, range 0-100px) with adjustable saturation (default 1.3x)
+- **Intelligent Dark Mode**: Automatic system theme detection with customizable darkness overlay (default 85%)
+- **Premium Glassmorphism**: Deep semi-transparent blacks with elegant bokeh effect and inset borders
 - **Zero Double Border**: Clean single-border design using box-shadow inset technique
+- **Customizable Rounded Corners**: Adjustable corner radius (default 14px, toggle on/off)
 
 ### ⚡ Performance
 - **Ultra-Responsive**: Zero delay on all interactions (hover, click, toggle)
@@ -37,9 +38,10 @@ A premium GNOME Shell extension that transforms your desktop with **macOS-style 
 ## 🚀 Installation Guide
 
 ### Prerequisites
-- GNOME Shell version 45, 46, or 47
+- GNOME Shell version 45, 46, 47, or 48
 - Linux distribution with GNOME Desktop Environment
 - Modern GPU with proper drivers for blur effects
+- gsettings/glib2.0 for configuration support
 
 ### Method 1: Manual Installation (Recommended)
 
@@ -48,9 +50,9 @@ A premium GNOME Shell extension that transforms your desktop with **macOS-style 
 # Navigate to your home directory
 cd ~
 
-# Clone the repository (replace with actual repo URL)
-git clone https://github.com/YOUR_USERNAME/liquid-glass-ui.git
-cd liquid-glass-ui
+# Clone the repository
+git clone https://github.com/fahmialfatah99/liquid-glass-expert.dev.git
+cd liquid-glass-expert.dev
 ```
 
 #### Step 2: Install to Extensions Directory
@@ -63,7 +65,7 @@ cp -r liquid-glass@expert.dev ~/.local/share/gnome-shell/extensions/
 
 # Verify installation
 ls ~/.local/share/gnome-shell/extensions/liquid-glass@expert.dev/
-# Should show: extension.js, stylesheet.css, metadata.json
+# Should show: extension.js, stylesheet.css, metadata.json, schemas/
 ```
 
 #### Step 3: Enable the Extension
@@ -103,7 +105,7 @@ killall -3 gnome-shell
 
 ```bash
 # One-line installation
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/YOUR_USERNAME/liquid-glass-ui/main/install.sh)"
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/fahmialfatah99/liquid-glass-expert.dev/main/install.sh)"
 ```
 
 ### Method 3: From AUR (Arch Linux Users)
@@ -141,24 +143,50 @@ gnome-extensions reset liquid-glass@expert.dev
 
 ## 🎨 Customization
 
-### Adjusting Blur Intensity
-Edit `~/.local/share/gnome-shell/extensions/liquid-glass@expert.dev/stylesheet.css`:
+### Using Extension Settings (Recommended)
+
+This extension includes customizable settings accessible via GNOME Extensions app or `dconf-editor`:
+
+- **Blur Strength**: Adjust blur radius from 0-100px (default: 40px)
+- **Darkness Level**: Control background opacity from 0.0-1.0 (default: 0.85)
+- **Saturation Level**: Modify color saturation multiplier from 0.0-2.0 (default: 1.3)
+- **Enable Rounding**: Toggle rounded corners on/off (default: true)
+- **Corner Radius**: Adjust corner radius from 0-30px (default: 14px)
+
+**Using Command Line:**
+```bash
+# Set blur strength to 60px
+gsettings set org.gnome.shell.extensions.liquid-glass blur-strength 60
+
+# Set darkness level to 0.9
+gsettings set org.gnome.shell.extensions.liquid-glass darkness-level 0.9
+
+# Set saturation to 1.5
+gsettings set org.gnome.shell.extensions.liquid-glass saturation-level 1.5
+
+# Disable rounded corners
+gsettings set org.gnome.shell.extensions.liquid-glass enable-rounding false
+
+# Set corner radius to 20px
+gsettings set org.gnome.shell.extensions.liquid-glass corner-radius 20
+
+# Reset all settings to defaults
+gsettings reset-recursively org.gnome.shell.extensions.liquid-glass
+```
+
+### Manual CSS Editing
+
+For advanced customization, edit `~/.local/share/gnome-shell/extensions/liquid-glass@expert.dev/stylesheet.css`:
 
 ```css
-/* Increase/decrease blur strength (default: 40-50px) */
-.liquid-glass-blur {
-    backdrop-filter: blur(50px) saturate(120%);
-}
+/* Note: CSS variables are now controlled via gsettings */
+/* These are the default values set in the extension */
 
-/* Adjust dark mode opacity */
-.liquid-glass-dark {
-    background-color: rgba(0, 0, 0, 0.85); /* More opaque */
-    /* background-color: rgba(0, 0, 0, 0.65); */ /* More transparent */
-}
-
-/* Modify shadow depth */
-.liquid-glass-shadow {
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+#liquid-glass-root {
+    --lg-blur: 40px;        /* Controlled by blur-strength setting */
+    --lg-darkness: 0.85;    /* Controlled by darkness-level setting */
+    --lg-saturation: 1.3;   /* Controlled by saturation-level setting */
+    --lg-radius: 14px;      /* Controlled by corner-radius setting */
 }
 ```
 
@@ -212,26 +240,34 @@ gnome-extensions disable liquid-glass@expert.dev
 ### Project Structure
 ```
 liquid-glass@expert.dev/
-├── extension.js      # Core logic with zero-delay optimizations
-├── stylesheet.css    # macOS-style blur and dark mode styles
-├── metadata.json     # Extension metadata (GNOME 45-47)
-└── README.md         # Documentation
+├── extension.js              # Core logic with settings integration & theme monitoring
+├── stylesheet.css            # macOS-style blur and dark mode styles with CSS variables
+├── metadata.json             # Extension metadata (GNOME 45-48)
+├── prefs.js                  # Preferences UI for customization
+├── schemas/
+│   └── org.gnome.shell.extensions.liquid-glass.gschema.xml  # Settings schema
+└── README.md                 # Documentation
 ```
 
 ### Development Setup
 ```bash
 # Clone for development
-git clone https://github.com/YOUR_USERNAME/liquid-glass-ui.git
-cd liquid-glass-ui
+git clone https://github.com/fahmialfatah99/liquid-glass-expert.dev.git
+cd liquid-glass-expert.dev
 
 # Install to local extensions
 cp -r liquid-glass@expert.dev ~/.local/share/gnome-shell/extensions/
 
-# Enable development mode
+# Compile schemas (required for settings to work)
+cd liquid-glass@expert.dev/schemas
+glib-compile-schemas .
+cd ../..
+
+# Enable the extension
 gnome-extensions enable liquid-glass@expert.dev
 
 # Watch logs in real-time
-tail -f ~/.xsession-errors | grep -i "liquid-glass"
+journalctl -f -o cat | grep -i "liquid-glass"
 ```
 
 ### Testing Changes
@@ -247,20 +283,25 @@ killall -HUP gnome-shell
 
 ### Building for Distribution
 ```bash
-# Package the extension
+# Package the extension (excluding development files)
 cd liquid-glass@expert.dev
-zip -r ../liquid-glass@expert.dev.zip ./*
+
+# Create zip package
+zip -r ../liquid-glass@expert.dev.zip ./* -x "*.git*" "*.md"
 
 # Validate package
 gnome-extensions validate liquid-glass@expert.dev.zip
+
+# Install from zip
+gnome-extensions install liquid-glass@expert.dev.zip
 ```
 
 ## 📋 System Requirements
 
 ### Minimum Requirements
-- GNOME Shell 45 or higher (tested on 45, 46, 47)
+- GNOME Shell 45 or higher (tested on 45, 46, 47, 48)
 - 4GB RAM minimum
-- Modern GPU with OpenGL 3.3+ support
+- Modern GPU with OpenGL 3.3+ support for blur effects
 - Linux distribution with GNOME Desktop
 
 ### Recommended Setup
@@ -281,11 +322,14 @@ gnome-extensions validate liquid-glass@expert.dev.zip
 
 ### From Git Repository
 ```bash
-cd ~/liquid-glass-ui
+cd ~/liquid-glass-expert.dev
 git pull origin main
 
 # Reinstall
 cp -r liquid-glass@expert.dev ~/.local/share/gnome-shell/extensions/
+
+# Recompile schemas if they changed
+cd liquid-glass@expert.dev/schemas && glib-compile-schemas . && cd ../..
 
 # Restart GNOME Shell
 ```
@@ -314,10 +358,10 @@ This project is licensed under the GPL-3.0 License - see the [LICENSE](LICENSE) 
 
 ## 📬 Support & Contact
 
-- **🐛 Bug Reports**: [Issues Page](https://github.com/YOUR_USERNAME/liquid-glass-ui/issues)
-- **💬 Discussions**: [Discussions Page](https://github.com/YOUR_USERNAME/liquid-glass-ui/discussions)
+- **🐛 Bug Reports**: [Issues Page](https://github.com/fahmialfatah99/liquid-glass-expert.dev/issues)
+- **💬 Discussions**: [Discussions Page](https://github.com/fahmialfatah99/liquid-glass-expert.dev/discussions)
 - **📧 Email**: support@example.com
-- **📖 Wiki**: [Documentation Wiki](https://github.com/YOUR_USERNAME/liquid-glass-ui/wiki)
+- **📖 Wiki**: [Documentation Wiki](https://github.com/fahmialfatah99/liquid-glass-expert.dev/wiki)
 
 ### Quick Help Commands
 ```bash
@@ -336,14 +380,15 @@ gnome-extensions reset liquid-glass@expert.dev
 
 ---
 
-## 🎯 Key Improvements in v3.0
+## 🎯 Key Improvements in v4.0
 
-✨ **macOS-Style Bokeh**: Powerful 40-50px blur with 120% saturation  
-🌙 **True Dark Mode**: Pure black backgrounds with automatic white text  
+✨ **Customizable Settings**: Full gsettings integration with 5 adjustable parameters  
+🔧 **Schema Support**: Proper GSettings schema for persistent configuration  
+🌈 **Dynamic Theme**: Real-time system theme detection and adaptation  
 ⚡ **Zero Delay**: Instant response on all interactions  
-🎨 **No Double Borders**: Clean single-border design  
-🚀 **Ultra Smooth**: Optimized animations without lag  
-🔍 **Smart Detection**: Automatic system theme monitoring  
+🎨 **No Double Borders**: Clean single-border design with inset shadows  
+🚀 **GNOME 48 Ready**: Tested and compatible with latest GNOME versions  
+📦 **Easy Setup**: Compiled schemas ready to use  
 
 ---
 
