@@ -1,0 +1,9 @@
+{
+  "uuid": "harmonyos-theme@expert.dev",
+  "name": "Huawei HarmonyOS Theme Clone",
+  "description": "Full clone of Huawei HarmonyOS aesthetic with smooth animations, glass morphism, dynamic colors, and system-wide theming ready to use.",
+  "version": 1,
+  "shell-version": ["45", "46", "47", "48"],
+  "url": "https://github.com/fahmialfatah99/harmonyos-theme-expert.dev",
+  "settings-schema": "org.gnome.shell.extensions.harmonyos-theme"
+}
