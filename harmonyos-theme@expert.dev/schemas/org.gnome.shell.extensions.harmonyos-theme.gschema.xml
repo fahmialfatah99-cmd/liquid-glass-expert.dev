@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist gettext-domain="harmonyos-theme">
+  <schema id="org.gnome.shell.extensions.harmonyos-theme" path="/org/gnome/shell/extensions/harmonyos-theme/">
+    <key name="blur-strength" type="i">
+      <default>50</default>
+      <summary>Blur Strength</summary>
+      <description>Radius of the blur effect in pixels (0-100).</description>
+      <range min="0" max="100"/>
+    </key>
+    <key name="darkness-level" type="d">
+      <default>0.75</default>
+      <summary>Darkness Level</summary>
+      <description>Opacity of the dark background overlay (0.0 - 1.0).</description>
+      <range min="0.0" max="1.0"/>
+    </key>
+    <key name="saturation-level" type="d">
+      <default>1.4</default>
+      <summary>Saturation Level</summary>
+      <description>Color saturation multiplier for the bokeh effect (0.0 - 2.0).</description>
+      <range min="0.0" max="2.0"/>
+    </key>
+    <key name="enable-rounding" type="b">
+      <default>true</default>
+      <summary>Enable Rounded Corners</summary>
+      <description>Apply rounded corners to all panels and menus.</description>
+    </key>
+    <key name="corner-radius" type="i">
+      <default>18</default>
+      <summary>Corner Radius</summary>
+      <description>Radius of rounded corners in pixels.</description>
+      <range min="0" max="36"/>
+    </key>
+    <key name="accent-color" type="s">
+      <default>'#00A8E8'</default>
+      <summary>Accent Color</summary>
+      <description>Primary accent color for HarmonyOS theme (hex format).</description>
+    </key>
+    <key name="enable-dynamic-colors" type="b">
+      <default>true</default>
+      <summary>Enable Dynamic Colors</summary>
+      <description>Adapt colors based on wallpaper or system theme.</description>
+    </key>
+    <key name="animation-speed" type="d">
+      <default>1.0</default>
+      <summary>Animation Speed Multiplier</summary>
+      <description>Speed multiplier for animations (0.5 - 2.0).</description>
+      <range min="0.5" max="2.0"/>
+    </key>
+    <key name="panel-transparency" type="d">
+      <default>0.85</default>
+      <summary>Panel Transparency</summary>
+      <description>Transparency level of the top panel (0.0 - 1.0).</description>
+      <range min="0.0" max="1.0"/>
+    </key>
+  </schema>
+</schemalist>

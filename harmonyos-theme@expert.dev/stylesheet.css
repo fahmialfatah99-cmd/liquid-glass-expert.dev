@@ -1,0 +1,566 @@
+/* ============================================
+   HUAWEI HARMONYOS THEME - FULL CLONE
+   Complete stylesheet for GNOME Shell
+   ============================================ */
+
+/* Root variables for HarmonyOS theme */
+#harmonyos-root {
+    --ho-blur: 50px;
+    --ho-darkness: 0.75;
+    --ho-saturation: 1.4;
+    --ho-radius: 18px;
+    --ho-accent: #00A8E8;
+    --ho-animation-speed: 1.0;
+    --ho-panel-alpha: 0.85;
+}
+
+/* Zero-delay interactions for smooth UX */
+.harmonyos-enabled * {
+    transition-duration: calc(200ms / var(--ho-animation-speed)) !important;
+    transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1) !important;
+}
+
+/* Top Panel - HarmonyOS Style */
+.harmonyos-enabled #panel {
+    backdrop-filter: blur(calc(var(--ho-blur) * 0.8)) saturate(var(--ho-saturation));
+    -webkit-backdrop-filter: blur(calc(var(--ho-blur) * 0.8)) saturate(var(--ho-saturation));
+    background-color: rgba(10, 10, 15, calc(var(--ho-darkness) * var(--ho-panel-alpha)));
+    border: none !important;
+    box-shadow: 
+        inset 0 1px 0 0 rgba(255, 255, 255, 0.08),
+        0 2px 10px 0 rgba(0, 0, 0, 0.3);
+    font-weight: 500;
+    height: 2.5em;
+}
+
+/* Panel buttons with HarmonyOS hover effect */
+.harmonyos-enabled .panel-button {
+    color: #ffffff !important;
+    border-radius: calc(var(--ho-radius) / 2);
+    transition: all calc(150ms / var(--ho-animation-speed)) ease !important;
+}
+
+.harmonyos-enabled .panel-button:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+}
+
+.harmonyos-enabled .panel-button:active {
+    background-color: rgba(255, 255, 255, 0.15);
+    transform: scale(0.98);
+}
+
+/* System tray and indicators */
+.harmonyos-enabled .status-icon,
+.harmonyos-enabled .system-status-icon {
+    icon-size: 16px;
+    margin: 0 4px;
+}
+
+/* Popup Menus - Glass Morphism */
+.harmonyos-enabled .popup-menu-content,
+.harmonyos-enabled .quick-settings-menu,
+.harmonyos-enabled .aggregate-menu,
+.harmonyos-enabled .calendar-popover,
+.harmonyos-enabled .message-list-section {
+    backdrop-filter: blur(var(--ho-blur)) saturate(var(--ho-saturation));
+    -webkit-backdrop-filter: blur(var(--ho-blur)) saturate(var(--ho-saturation));
+    background-color: rgba(15, 15, 20, var(--ho-darkness));
+    border: none !important;
+    border-radius: var(--ho-radius);
+    box-shadow: 
+        inset 0 1px 0 0 rgba(255, 255, 255, 0.1),
+        inset 0 -1px 0 0 rgba(0, 0, 0, 0.4),
+        0 15px 50px 0 rgba(0, 0, 0, 0.5),
+        0 0 0 1px rgba(255, 255, 255, 0.05);
+    padding: 12px;
+    margin: 8px;
+}
+
+/* Menu items with HarmonyOS styling */
+.harmonyos-enabled .popup-menu-item {
+    border-radius: calc(var(--ho-radius) - 4px);
+    padding: 8px 12px;
+    margin: 2px 0;
+    spacing: 12px;
+}
+
+.harmonyos-enabled .popup-menu-item:hover {
+    background-color: rgba(255, 255, 255, 0.08);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.03);
+}
+
+.harmonyos-enabled .popup-menu-item:active {
+    background-color: rgba(255, 255, 255, 0.12);
+}
+
+.harmonyos-enabled .popup-menu-item:selected {
+    background-color: rgba(0, 168, 232, 0.3);
+    color: #ffffff !important;
+}
+
+/* Quick Settings Toggles */
+.harmonyos-enabled .quick-toggle {
+    border-radius: calc(var(--ho-radius) - 2px);
+    background-color: rgba(255, 255, 255, 0.05);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+    padding: 12px;
+    margin: 4px;
+    min-width: 120px;
+    min-height: 64px;
+}
+
+.harmonyos-enabled .quick-toggle:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.harmonyos-enabled .quick-toggle:checked {
+    background-color: var(--ho-accent);
+    box-shadow: 
+        inset 0 0 0 1px rgba(255, 255, 255, 0.2),
+        0 4px 12px 0 rgba(0, 168, 232, 0.4);
+}
+
+.harmonyos-enabled .quick-toggle:checked .toggle-indicator {
+    color: #ffffff !important;
+}
+
+/* System menu items */
+.harmonyos-enabled .system-menu-item,
+.harmonyos-enabled .date-menu-item {
+    border-radius: calc(var(--ho-radius) - 4px);
+    padding: 10px;
+    margin: 4px 0;
+}
+
+/* Calendar widget */
+.harmonyos-enabled .calendar-day-base {
+    border-radius: 50%;
+    font-size: 14px;
+    font-weight: 500;
+    width: 36px;
+    height: 36px;
+}
+
+.harmonyos-enabled .calendar-day-base:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.harmonyos-enabled .calendar-day-base:selected {
+    background-color: var(--ho-accent);
+    color: #ffffff !important;
+    box-shadow: 0 4px 12px 0 rgba(0, 168, 232, 0.4);
+}
+
+.harmonyos-enabled .calendar-day-base.calendar-day-heading {
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Clock display */
+.harmonyos-enabled .clock-display,
+.harmonyos-enabled .clock {
+    font-weight: 500;
+    font-feature-settings: "tnum";
+}
+
+/* Overview Panel */
+.harmonyos-enabled .overview-panel {
+    backdrop-filter: blur(var(--ho-blur)) saturate(var(--ho-saturation));
+    -webkit-backdrop-filter: blur(var(--ho-blur)) saturate(var(--ho-saturation));
+    background-color: rgba(10, 10, 15, calc(var(--ho-darkness) + 0.1));
+}
+
+/* Dash (Application Dock) */
+.harmonyos-enabled #dash,
+.harmonyos-enabled .dash-background {
+    backdrop-filter: blur(var(--ho-blur)) saturate(var(--ho-saturation));
+    -webkit-backdrop-filter: blur(var(--ho-blur)) saturate(var(--ho-saturation));
+    background-color: rgba(15, 15, 20, calc(var(--ho-darkness) + 0.15));
+    border: none !important;
+    border-radius: var(--ho-radius);
+    box-shadow: 
+        inset 0 1px 0 0 rgba(255, 255, 255, 0.1),
+        0 10px 40px 0 rgba(0, 0, 0, 0.5);
+    padding: 8px;
+    margin: 10px;
+}
+
+.harmonyos-enabled #dash .dash-item-container {
+    border-radius: calc(var(--ho-radius) - 4px);
+}
+
+.harmonyos-enabled .app-well-app,
+.harmonyos-enabled .dash-item-container > StButton {
+    border-radius: calc(var(--ho-radius) - 4px);
+    transition: all calc(150ms / var(--ho-animation-speed)) ease !important;
+}
+
+.harmonyos-enabled .app-well-app:hover,
+.harmonyos-enabled .dash-item-container > StButton:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: scale(1.05);
+}
+
+.harmonyos-enabled .app-well-app:active,
+.harmonyos-enabled .dash-item-container > StButton:active {
+    transform: scale(0.95);
+}
+
+.harmonyos-enabled .app-well-app-running-dot {
+    background-color: var(--ho-accent);
+    width: 6px;
+    height: 6px;
+    border-radius: 3px;
+    margin-bottom: 4px;
+    box-shadow: 0 0 8px 0 var(--ho-accent);
+}
+
+/* Search Entry in Overview */
+.harmonyos-enabled .search-entry {
+    backdrop-filter: blur(calc(var(--ho-blur) * 0.5)) saturate(var(--ho-saturation));
+    -webkit-backdrop-filter: blur(calc(var(--ho-blur) * 0.5)) saturate(var(--ho-saturation));
+    background-color: rgba(0, 0, 0, 0.3);
+    color: #ffffff;
+    caret-color: var(--ho-accent);
+    border: none !important;
+    border-radius: calc(var(--ho-radius) - 2px);
+    box-shadow: 
+        inset 0 2px 4px rgba(0, 0, 0, 0.3),
+        0 0 0 1px rgba(255, 255, 255, 0.05);
+    padding: 12px 16px;
+    font-size: 16px;
+}
+
+.harmonyos-enabled .search-entry:focus {
+    background-color: rgba(0, 0, 0, 0.4);
+    box-shadow: 
+        inset 0 2px 4px rgba(0, 0, 0, 0.4),
+        0 0 0 2px var(--ho-accent);
+}
+
+.harmonyos-enabled .search-entry StIcon {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Modal Dialogs */
+.harmonyos-enabled .modal-dialog {
+    backdrop-filter: blur(var(--ho-blur)) saturate(var(--ho-saturation));
+    -webkit-backdrop-filter: blur(var(--ho-blur)) saturate(var(--ho-saturation));
+    background-color: rgba(20, 20, 25, 0.95);
+    border: none !important;
+    border-radius: var(--ho-radius);
+    box-shadow: 
+        inset 0 1px 0 0 rgba(255, 255, 255, 0.1),
+        0 20px 60px 0 rgba(0, 0, 0, 0.6);
+    color: #ffffff;
+    padding: 20px;
+}
+
+.harmonyos-enabled .modal-dialog-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+.harmonyos-enabled .modal-dialog-button-box {
+    spacing: 12px;
+}
+
+.harmonyos-enabled .modal-dialog-button {
+    border-radius: calc(var(--ho-radius) - 4px);
+    background-color: rgba(255, 255, 255, 0.1);
+    border: none !important;
+    padding: 10px 24px;
+    font-weight: 500;
+}
+
+.harmonyos-enabled .modal-dialog-button:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+.harmonyos-enabled .modal-dialog-button:active {
+    background-color: var(--ho-accent);
+    color: #ffffff !important;
+}
+
+/* Run Dialog */
+.harmonyos-enabled .run-dialog {
+    backdrop-filter: blur(var(--ho-blur)) saturate(var(--ho-saturation));
+    -webkit-backdrop-filter: blur(var(--ho-blur)) saturate(var(--ho-saturation));
+    background-color: rgba(15, 15, 20, 0.95);
+    border-radius: var(--ho-radius);
+    box-shadow: 0 15px 50px 0 rgba(0, 0, 0, 0.5);
+}
+
+.harmonyos-enabled .run-dialog-entry {
+    background-color: rgba(0, 0, 0, 0.3);
+    border: none !important;
+    border-radius: calc(var(--ho-radius) - 4px);
+    color: #ffffff;
+    caret-color: var(--ho-accent);
+}
+
+/* OSD Windows (Volume, Brightness, etc.) */
+.harmonyos-enabled .osd-window {
+    backdrop-filter: blur(var(--ho-blur)) saturate(var(--ho-saturation));
+    -webkit-backdrop-filter: blur(var(--ho-blur)) saturate(var(--ho-saturation));
+    background-color: rgba(15, 15, 20, 0.9);
+    border: none !important;
+    border-radius: var(--ho-radius);
+    box-shadow: 
+        inset 0 1px 0 0 rgba(255, 255, 255, 0.1),
+        0 10px 40px 0 rgba(0, 0, 0, 0.5);
+    padding: 16px;
+}
+
+.harmonyos-enabled .osd-window .level-bar {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: calc(var(--ho-radius) / 2);
+    overflow: hidden;
+}
+
+.harmonyos-enabled .osd-window .level-bar level {
+    background-color: var(--ho-accent);
+    border-radius: calc(var(--ho-radius) / 2);
+}
+
+/* Tooltips */
+.harmonyos-enabled .tooltip {
+    backdrop-filter: blur(calc(var(--ho-blur) * 0.6)) saturate(var(--ho-saturation));
+    -webkit-backdrop-filter: blur(calc(var(--ho-blur) * 0.6)) saturate(var(--ho-saturation));
+    background-color: rgba(15, 15, 20, 0.95);
+    border: none !important;
+    border-radius: calc(var(--ho-radius) - 4px);
+    color: #ffffff;
+    box-shadow: 0 8px 30px 0 rgba(0, 0, 0, 0.4);
+    padding: 8px 12px;
+}
+
+/* Workspace Switcher */
+.harmonyos-enabled .workspace-switcher {
+    spacing: 12px;
+}
+
+.harmonyos-enabled .workspace-thumbnail {
+    border: none !important;
+    border-radius: var(--ho-radius);
+    box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.4);
+}
+
+.harmonyos-enabled .workspace-thumbnail.active {
+    box-shadow: 
+        0 4px 20px 0 rgba(0, 0, 0, 0.4),
+        0 0 0 2px var(--ho-accent);
+}
+
+/* App Switcher */
+.harmonyos-enabled .switcher-popup {
+    backdrop-filter: blur(var(--ho-blur)) saturate(var(--ho-saturation));
+    -webkit-backdrop-filter: blur(var(--ho-blur)) saturate(var(--ho-saturation));
+    background-color: rgba(15, 15, 20, 0.95);
+    border-radius: var(--ho-radius);
+    box-shadow: 0 20px 60px 0 rgba(0, 0, 0, 0.5);
+    padding: 20px;
+}
+
+.harmonyos-enabled .switcher-list {
+    border: none !important;
+    border-radius: var(--ho-radius);
+}
+
+.harmonyos-enabled .switcher-list-item {
+    border-radius: calc(var(--ho-radius) - 4px);
+    padding: 12px;
+}
+
+.harmonyos-enabled .switcher-list-item:selected {
+    background-color: var(--ho-accent);
+    color: #ffffff !important;
+}
+
+/* Candidate Popup (Input Method) */
+.harmonyos-enabled .candidate-popup-boxpointer {
+    -arrow-border-radius: var(--ho-radius);
+    -arrow-background-color: rgba(15, 15, 20, 0.95);
+    -arrow-border-width: 0;
+    -arrow-border-color: transparent;
+    backdrop-filter: blur(var(--ho-blur)) saturate(var(--ho-saturation));
+    -webkit-backdrop-filter: blur(var(--ho-blur)) saturate(var(--ho-saturation));
+}
+
+.harmonyos-enabled .candidate-popup-content {
+    background-color: transparent;
+    border-radius: var(--ho-radius);
+}
+
+/* Box Pointer Arrows */
+.harmonyos-enabled .popup-menu-boxpointer {
+    -arrow-border-radius: var(--ho-radius);
+    -arrow-background-color: rgba(15, 15, 20, var(--ho-darkness));
+    -arrow-border-width: 0;
+    -arrow-border-color: transparent;
+    -arrow-base: 0;
+    -arrow-rise: 0;
+    box-shadow: none;
+    backdrop-filter: blur(var(--ho-blur)) saturate(var(--ho-saturation));
+    -webkit-backdrop-filter: blur(var(--ho-blur)) saturate(var(--ho-saturation));
+}
+
+/* Scrollbars */
+.harmonyos-enabled StScrollView.vfade {
+    -st-vfade-offset: 0;
+}
+
+.harmonyos-enabled StScrollBar {
+    padding: 4px;
+}
+
+.harmonyos-enabled StScrollBar StBin {
+    border-radius: 4px;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.harmonyos-enabled StScrollBar StButton#vhandle,
+.harmonyos-enabled StScrollBar StButton#hhandle {
+    border-radius: 4px;
+    background-color: rgba(255, 255, 255, 0.3);
+    margin: 2px;
+}
+
+.harmonyos-enabled StScrollBar StButton#vhandle:hover,
+.harmonyos-enabled StScrollBar StButton#hhandle:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+/* Dark Mode Specific Styles */
+.harmonyos-enabled.harmonyos-dark .popup-menu-item,
+.harmonyos-enabled.harmonyos-dark .quick-toggle,
+.harmonyos-enabled.harmonyos-dark .system-menu-item,
+.harmonyos-enabled.harmonyos-dark .date-menu-item,
+.harmonyos-enabled.harmonyos-dark .calendar-day-base,
+.harmonyos-enabled.harmonyos-dark .clock-display,
+.harmonyos-enabled.harmonyos-dark .panel-button,
+.harmonyos-enabled.harmonyos-dark .app-well-app,
+.harmonyos-enabled.harmonyos-dark .search-result-title {
+    color: #ffffff !important;
+}
+
+/* Light Mode Specific Styles */
+.harmonyos-enabled.harmonyos-light .popup-menu-item,
+.harmonyos-enabled.harmonyos-light .quick-toggle,
+.harmonyos-enabled.harmonyos-light .system-menu-item,
+.harmonyos-enabled.harmonyos-light .date-menu-item,
+.harmonyos-enabled.harmonyos-light .calendar-day-base,
+.harmonyos-enabled.harmonyos-light .clock-display,
+.harmonyos-enabled.harmonyos-light .panel-button,
+.harmonyos-enabled.harmonyos-light .app-well-app,
+.harmonyos-enabled.harmonyos-light .search-result-title {
+    color: #1a1a1a !important;
+}
+
+.harmonyos-enabled.harmonyos-light .popup-menu-content,
+.harmonyos-enabled.harmonyos-light .quick-settings-menu,
+.harmonyos-enabled.harmonyos-light .modal-dialog {
+    background-color: rgba(245, 245, 250, 0.85);
+}
+
+/* Notifications */
+.harmonyos-enabled .notification-banner {
+    backdrop-filter: blur(var(--ho-blur)) saturate(var(--ho-saturation));
+    -webkit-backdrop-filter: blur(var(--ho-blur)) saturate(var(--ho-saturation));
+    background-color: rgba(15, 15, 20, 0.9);
+    border: none !important;
+    border-radius: var(--ho-radius);
+    box-shadow: 
+        inset 0 1px 0 0 rgba(255, 255, 255, 0.1),
+        0 10px 40px 0 rgba(0, 0, 0, 0.4);
+    margin: 8px;
+}
+
+.harmonyos-enabled .notification-banner:hover {
+    background-color: rgba(15, 15, 20, 0.95);
+}
+
+.harmonyos-enabled .notification-banner .notification-title {
+    font-weight: 600;
+    color: #ffffff;
+}
+
+.harmonyos-enabled .notification-banner .notification-body {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.harmonyos-enabled .notification-banner .notification-actions {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 8px;
+}
+
+.harmonyos-enabled .notification-banner .notification-action-button {
+    border-radius: calc(var(--ho-radius) - 4px);
+    background-color: rgba(255, 255, 255, 0.1);
+    border: none !important;
+    color: #ffffff;
+}
+
+.harmonyos-enabled .notification-banner .notification-action-button:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+/* Message List */
+.harmonyos-enabled .message-list-section-header {
+    font-weight: 600;
+    color: #ffffff;
+}
+
+.harmonyos-enabled .message {
+    border-radius: calc(var(--ho-radius) - 4px);
+    background-color: rgba(255, 255, 255, 0.05);
+    margin: 4px 0;
+}
+
+.harmonyos-enabled .message:hover {
+    background-color: rgba(255, 255, 255, 0.08);
+}
+
+/* Window Controls */
+.harmonyos-enabled .window-close {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: none !important;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+}
+
+.harmonyos-enabled .window-close:hover {
+    background-color: rgba(255, 50, 50, 0.8);
+}
+
+/* Ensure proper spacing throughout */
+.harmonyos-enabled .popup-menu-ornament {
+    spacing: 12px;
+}
+
+.harmonyos-enabled .popup-menu-icon {
+    icon-size: 16px;
+}
+
+/* Hot corner animation */
+.harmonyos-enabled .ripple-box {
+    background-color: rgba(0, 168, 232, 0.3);
+    border-radius: 50%;
+}
+
+/* Login/Lock Screen (if applicable) */
+.harmonyos-enabled .lock-screen,
+.harmonyos-enabled .login-dialog {
+    backdrop-filter: blur(var(--ho-blur)) saturate(var(--ho-saturation));
+    -webkit-backdrop-filter: blur(var(--ho-blur)) saturate(var(--ho-saturation));
+}
+
+.harmonyos-enabled .login-dialog-user-list-item:selected {
+    background-color: var(--ho-accent);
+    border-radius: calc(var(--ho-radius) - 4px);
+}
+
+/* End of HarmonyOS Theme Stylesheet */
